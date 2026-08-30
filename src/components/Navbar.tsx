@@ -32,27 +32,33 @@ export function Navbar({ onOpenSandbox }: NavbarProps) {
     <nav className="sticky top-0 z-40 w-full border-b border-slate-200 bg-white/95 backdrop-blur-md transition-all">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
         
-        {/* Brand identity with Geometric 45-degree diamond mark */}
+        {/* Brand identity: Stylized Monogram & Personal Name */}
         <div className="flex items-center gap-3">
-          <a href="#" className="group flex items-center gap-3">
-            <div className="relative flex h-8 w-8 items-center justify-center">
-              <div className="h-7 w-7 bg-emerald-600 rounded-sm rotate-45 group-hover:rotate-90 transition-transform duration-300 shadow-sm"></div>
-              <Terminal className="absolute h-3.5 w-3.5 text-white" />
+          <a 
+            href="#" 
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="group flex items-center gap-3 cursor-pointer"
+            title="Hakob Nahapetyan - Back to top"
+          >
+            <div className="relative flex h-9 w-9 items-center justify-center rounded-sm bg-slate-900 text-white shadow-xs group-hover:bg-emerald-600 transition-colors duration-300">
+              <span className="font-mono text-xs font-black tracking-wider text-emerald-400 group-hover:text-white transition-colors">
+                HN
+              </span>
+              <div className="absolute -bottom-0.5 -right-0.5 h-2 w-2 rounded-full bg-emerald-500 ring-2 ring-white"></div>
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <span className="text-lg font-bold tracking-tight text-slate-900 group-hover:text-emerald-600 transition-colors">
-                  {PERSONAL_INFO.domain}
-                </span>
-                <span className="inline-flex items-center rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold font-mono text-emerald-700 border border-emerald-200">
-                  <span className="mr-1 h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  ACTIVE
+              <div className="flex items-center">
+                <span className="text-base sm:text-lg font-bold tracking-tight text-slate-900 group-hover:text-emerald-600 transition-colors">
+                  {PERSONAL_INFO.name}
                 </span>
               </div>
-              <p className="text-[11px] font-mono text-slate-500 flex items-center gap-1">
-                <span>{PERSONAL_INFO.name}</span>
+              <p className="text-[11px] font-mono text-slate-500 flex items-center gap-1.5 leading-none mt-0.5">
+                <span>AI Financial Architect</span>
                 <span className="text-slate-300">•</span>
-                <span>Financial AI Architect</span>
+                <span>Enterprise Automation</span>
               </p>
             </div>
           </a>

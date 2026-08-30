@@ -75,12 +75,17 @@ export function Footer({}: FooterProps) {
 
         {/* Bottom Bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-slate-500 font-mono text-[11px]">
+          <div className="flex flex-wrap items-center gap-2 text-slate-500 font-mono text-[11px]">
             <span>© {new Date().getFullYear()} Hakob Nahapetyan. All rights reserved.</span>
             <span>•</span>
-            <span className="text-emerald-700 font-medium flex items-center gap-1">
-              <ShieldCheck className="h-3 w-3" />
-              SOX 404 & GAAP AI Pipelines
+            <span className="inline-flex items-center gap-1 text-emerald-700 font-medium bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>Reconciliation Engine: 99.98% Precision</span>
+            </span>
+            <span>•</span>
+            <span className="text-slate-600 font-medium flex items-center gap-1">
+              <ShieldCheck className="h-3 w-3 text-emerald-600" />
+              SOX 404 & GAAP Audit Compliant
             </span>
           </div>
 

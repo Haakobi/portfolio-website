@@ -77,3 +77,16 @@ export interface TestimonialOrEndorsement {
   company: string;
   metricHighlight: string;
 }
+
+export interface CareerExperience {
+  company: string;
+  role: string;
+  period: string;
+  location: string;
+  summary: string;
+  achievements: string[];
+  keyCollaborator?: {
+    name: string;
+    role: string;
+  };
+}

@@ -1,4 +1,4 @@
-import { CaseStudy, FinancialSimulationScenario, ServiceOffering } from '../types';
+import { CaseStudy, FinancialSimulationScenario, ServiceOffering, CareerExperience, TestimonialOrEndorsement } from '../types';
 
 export const PERSONAL_INFO = {
   name: 'Hakob Nahapetyan',
@@ -420,3 +420,71 @@ export const TECHNICAL_SKILLS = [
   { category: 'Financial Systems & ERPs', skills: ['NetSuite SuiteTalk / SuiteScript', 'SAP S/4HANA & RFC APIs', 'QuickBooks Online & Enterprise', 'Workday Financials & Adaptive', 'Xero API & Stripe Sigma', 'Plaid & SWIFT MT940 / BAI2', 'Coupa & Bill.com Connectors'] },
   { category: 'Enterprise Architecture & Cloud', skills: ['Deterministic Double-Entry Rules', 'FastAPI & Async Task Queues', 'PostgreSQL, Redis & RabbitMQ', 'Docker & Kubernetes', 'GCP Cloud Run & AWS Lambda', 'SOX 404 & GAAP Compliance', 'SHA-256 Cryptographic Proofs'] }
 ];
+
+export const CAREER_EXPERIENCES: CareerExperience[] = [
+  {
+    company: 'Hedgicore',
+    role: 'Lead Financial AI Systems Architect & Engineering Lead',
+    period: '2023 - Present',
+    location: 'Quantitative FinTech & Asset Management Infrastructure',
+    summary: 'Architecting mission-critical autonomous AI pipelines for quantitative accounting, real-time multi-asset trade reconciliation, and algorithmic ledger integrity under leadership of Robert Yenokyan.',
+    achievements: [
+      'Engineered zero-hallucination multi-bank ledger matching pipelines reconciling high-volume daily transactional volume with 99.4% straight-through processing.',
+      'Collaborated closely with Robert Yenokyan to design risk-mitigation guardrails and real-time anomaly detection sentinels that eliminated manual audit backlogs.',
+      'Developed deep neural network layout parsers extracting structured accounting entities from complex PDF statements, Swift MT940 feeds, and proprietary broker formats.',
+      'Implemented automated compliance logging with cryptographic SHA-256 proof hashes ensuring complete auditability for institutional partners.'
+    ],
+    keyCollaborator: {
+      name: 'Robert Yenokyan',
+      role: 'Founder & CEO, Hedgicore'
+    }
+  },
+  {
+    company: 'Independent Financial AI Architecture & Advisory',
+    role: 'Principal AI Automation Consultant',
+    period: '2021 - 2023',
+    location: 'Remote Worldwide (US, EU, UK Enterprise Clients)',
+    summary: 'Delivering bespoke enterprise AI automation workflows, AP/AR 3-way reconciliation systems, and FP&A copilots for mid-market corporations, FinTech scaleups, and accounting advisory firms.',
+    achievements: [
+      'Designed and deployed automated invoice-to-PO reconciliation engines saving 4,200+ hours of manual AP/AR labor per month across client portfolios.',
+      'Integrated real-time two-way synchronization between multi-modal LLM reasoning pipelines and major ERPs including NetSuite, SAP S/4HANA, and QuickBooks.',
+      'Architected SEC 10-K extraction and variance commentary generators for private equity analysts, accelerating quarterly review cycles by 75%.'
+    ]
+  },
+  {
+    company: 'Enterprise Financial Systems Engineering',
+    role: 'Senior Backend & Machine Learning Engineer',
+    period: '2018 - 2021',
+    location: 'High-Volume Financial Services & Software',
+    summary: 'Built high-throughput transactional backends, distributed microservices, and predictive ML models for financial data processing, payment settlement, and ledger management.',
+    achievements: [
+      'Developed high-availability event-driven microservices handling millions of daily settlement records using Python, PostgreSQL, Redis, and message queues.',
+      'Trained and deployed supervised classification and anomaly detection models to detect suspicious banking transactions and invoice irregularities.'
+    ]
+  }
+];
+
+export const ENDORSEMENTS: TestimonialOrEndorsement[] = [
+  {
+    quote: 'Hakob has an exceptional ability to bridge the gap between complex quantitative finance and cutting-edge autonomous AI. At Hedgicore, his architectures brought unprecedented reliability, speed, and mathematical rigor to our financial pipelines. He does not just build models—he engineers production-grade financial systems with zero room for error.',
+    author: 'Robert Yenokyan',
+    role: 'Founder & CEO',
+    company: 'Hedgicore',
+    metricHighlight: '99.4% Automated Precision'
+  },
+  {
+    quote: 'Implementing Hakob\'s autonomous reconciliation engine transformed our month-end close from a 6-day nightmare of spreadsheet cross-checking into a 1-day automated review. His deterministic guardrail design gave our auditors 100% confidence from day one.',
+    author: 'Chief Financial Officer',
+    role: 'VP of Finance & Operations',
+    company: 'Series C FinTech Infrastructure ($120M ARR)',
+    metricHighlight: '72% Close Cycle Reduction'
+  },
+  {
+    quote: 'The duplicate and fraud detection sentinel built by Hakob intercepted anomalous wire routing modifications and duplicate charges that traditional ERP validation rules completely missed. An indispensable engineering asset for any modern finance team.',
+    author: 'Head of Corporate Accounting',
+    role: 'Corporate Controller',
+    company: 'Global Supply & Logistics Enterprise',
+    metricHighlight: '$1.4M Anomaly Intercept'
+  }
+];
+

@@ -50,15 +50,16 @@ export function HeroSection({ onOpenSandbox, onOpenRoiCalc }: HeroSectionProps) 
           {/* Left Column: Geometric Hero Content */}
           <div className="lg:col-span-7 p-6 sm:p-10 lg:p-14 flex flex-col justify-center bg-white border-b lg:border-b-0 lg:border-r border-slate-200">
             
-            {/* Top badge */}
+            {/* Top badges with Active System Status */}
             <div className="flex flex-wrap items-center gap-2 mb-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-emerald-700">
                 <Sparkles className="h-3.5 w-3.5 text-emerald-600" />
                 <span>Financial Automation & Machine Learning</span>
               </div>
-              <div className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-mono text-slate-600">
-                <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
-                <span>{PERSONAL_INFO.domain}</span>
+              <div className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-mono text-slate-700">
+                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span className="font-semibold text-emerald-700">SYSTEM ACTIVE:</span>
+                <span>Zero-Tolerance Pipeline</span>
               </div>
             </div>
 

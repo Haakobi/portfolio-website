@@ -15,9 +15,12 @@ import {
   Zap,
   Briefcase,
   Layers,
-  HeartHandshake
+  HeartHandshake,
+  Quote,
+  Building2,
+  Calendar
 } from 'lucide-react';
-import { PERSONAL_INFO, TECHNICAL_SKILLS } from '../data/portfolioData';
+import { PERSONAL_INFO, TECHNICAL_SKILLS, CAREER_EXPERIENCES, ENDORSEMENTS } from '../data/portfolioData';
 
 export function AboutSection() {
   const principles = [
@@ -170,6 +173,109 @@ export function AboutSection() {
 
         </div>
 
+        {/* Career Experience & Engineering Leadership */}
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-emerald-800 mb-1">
+                <Building2 className="h-3.5 w-3.5 text-emerald-600" />
+                <span>Track Record & Key Engagements</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                Professional Experience & Leadership
+              </h3>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            {CAREER_EXPERIENCES.map((exp) => (
+              <div 
+                key={exp.company}
+                className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-emerald-600/60 transition-colors shadow-2xs"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3 pb-3 border-b border-slate-200">
+                  <div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h4 className="text-base font-bold text-slate-900">{exp.company}</h4>
+                      {exp.keyCollaborator && (
+                        <span className="inline-flex items-center gap-1 text-[11px] font-mono bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded-full font-medium">
+                          Collaboration: {exp.keyCollaborator.name} ({exp.keyCollaborator.role})
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs font-semibold text-emerald-700 mt-0.5">{exp.role}</p>
+                  </div>
+                  <div className="flex items-center gap-3 text-xs font-mono text-slate-500">
+                    <span className="flex items-center gap-1">
+                      <Calendar className="h-3 w-3 text-slate-400" />
+                      {exp.period}
+                    </span>
+                    <span>•</span>
+                    <span>{exp.location}</span>
+                  </div>
+                </div>
+
+                <p className="text-xs text-slate-700 leading-relaxed mb-4">
+                  {exp.summary}
+                </p>
+
+                <div className="space-y-1.5">
+                  {exp.achievements.map((ach, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-xs text-slate-600">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shrink-0 mt-1.5"></span>
+                      <span className="leading-relaxed">{ach}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Executive Endorsements & Client Feedback */}
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-emerald-800 mb-1">
+                <Quote className="h-3.5 w-3.5 text-emerald-600" />
+                <span>Executive Endorsements</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+                Leadership Recommendations & Industry Impact
+              </h3>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {ENDORSEMENTS.map((end, idx) => (
+              <div 
+                key={idx}
+                className="bg-slate-50 border border-slate-200 rounded-xl p-6 flex flex-col justify-between shadow-2xs hover:border-emerald-600/60 transition-colors"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="h-7 w-7 rounded-sm bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700">
+                      <Quote className="h-3.5 w-3.5" />
+                    </div>
+                    <span className="inline-flex items-center rounded-full bg-emerald-100/80 px-2 py-0.5 text-[10px] font-mono font-bold text-emerald-800">
+                      {end.metricHighlight}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-700 italic leading-relaxed mb-6">
+                    &ldquo;{end.quote}&rdquo;
+                  </p>
+                </div>
+
+                <div className="pt-3 border-t border-slate-200">
+                  <h4 className="text-xs font-bold text-slate-900">{end.author}</h4>
+                  <p className="text-[11px] text-emerald-700 font-medium">{end.role}</p>
+                  <p className="text-[10px] font-mono text-slate-500">{end.company}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Technical Stack Radar & Matrix */}
         <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 sm:p-8 shadow-2xs mb-12">
           <h3 className="text-xs font-mono font-bold text-slate-800 uppercase tracking-wider mb-6 flex items-center gap-2">
@@ -195,6 +301,7 @@ export function AboutSection() {
             ))}
           </div>
         </div>
+
 
         {/* Call to Action for Collaborators & Clients */}
         <div className="rounded-xl border border-emerald-200 bg-emerald-50/70 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xs">
