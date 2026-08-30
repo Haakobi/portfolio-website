@@ -69,7 +69,7 @@ export function HeroSection({ onOpenSandbox, onOpenRoiCalc }: HeroSectionProps) 
             </h1>
 
             <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mb-8">
-              I am <strong className="text-slate-900 font-semibold">Hakob Nahapetyan</strong>. I architect intelligent automation layers for high-stakes financial workflows, leveraging LLMs and deterministic guardrails to eliminate latency in reporting, bank reconciliation, and risk audit.
+              I am <strong className="text-slate-900 font-semibold">Hakob Nahapetyan</strong>. I architect intelligent automation systems for high-stakes financial workflows, pairing advanced AI models with deterministic accounting guardrails to eliminate manual friction in reporting, bank reconciliation, and risk audit.
             </p>
 
             {/* Quick action buttons */}
@@ -85,10 +85,10 @@ export function HeroSection({ onOpenSandbox, onOpenRoiCalc }: HeroSectionProps) 
               </a>
 
               <a
-                href="#case-studies"
+                href="#projects"
                 className="inline-flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-5 py-3 text-xs font-semibold uppercase tracking-wider text-slate-700 hover:border-slate-300 hover:text-slate-900 transition-all hover:bg-slate-50"
               >
-                <span>Case Studies</span>
+                <span>Featured Projects</span>
                 <ChevronRight className="h-4 w-4 text-slate-400" />
               </a>
 

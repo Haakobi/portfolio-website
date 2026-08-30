@@ -2,12 +2,13 @@ import { CaseStudy, FinancialSimulationScenario, ServiceOffering } from '../type
 
 export const PERSONAL_INFO = {
   name: 'Hakob Nahapetyan',
-  title: 'AI Financial Workflow Automation Architect',
+  title: 'AI Financial Workflow Automation Architect & Engineer',
   domain: 'hakobnahapetyan.com',
-  email: 'hakobian.ohanyan@gmail.com',
+  email: 'hakob.h.nahapetyan@gmail.com',
   location: 'Yerevan / Remote Worldwide (EST, PST, CET timezone flexible)',
   yearsExperience: '7+',
   headline: 'Engineering autonomous AI pipelines that eliminate manual reconciliation, audit risk, and month-end close delays for modern finance teams.',
+  aboutIntro: 'I am an AI Financial Systems Architect specializing in automating high-volume accounting and treasury workflows. I design and build end-to-end intelligent pipelines that combine deep learning, natural language processing (NLP), multi-modal LLMs, and deterministic accounting engines to achieve straight-through processing with zero financial hallucinations.',
   stats: [
     { label: 'Manual Hours Eliminated / Mo', value: '4,200+' },
     { label: 'Straight-Through Processing Rate', value: '99.4%' },
@@ -17,7 +18,7 @@ export const PERSONAL_INFO = {
   socials: {
     github: 'https://github.com',
     linkedin: 'https://linkedin.com',
-    email: 'mailto:hakobian.ohanyan@gmail.com'
+    email: 'mailto:hakob.h.nahapetyan@gmail.com'
   }
 };
 
@@ -43,7 +44,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: 'Close Cycle Time', value: '1.2 Days', improvement: 'Reduced from 6 days' },
       { label: 'Annual Cost Savings', value: '$340,000', improvement: '6 FTE hours redirected' }
     ],
-    techStack: ['Python', 'FastAPI', 'Gemini Multi-Modal API', 'LangGraph', 'PostgreSQL', 'Redis', 'Docker'],
+    techStack: ['Python', 'TensorFlow', 'NLP & LayoutLM', 'Gemini Multi-Modal API', 'LangGraph', 'FastAPI', 'PostgreSQL', 'Docker'],
     erpSystems: ['NetSuite SuiteTalk', 'SAP S/4HANA', 'Plaid API', 'J.P. Morgan Access'],
     featured: true
   },
@@ -67,7 +68,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: 'Duplicate Detection', value: '100%', improvement: '184 duplicates prevented' },
       { label: 'Review Latency', value: '850ms', improvement: 'Instant pre-flight check' }
     ],
-    techStack: ['Python', 'LangChain', 'pgvector', 'FastAPI', 'RabbitMQ', 'TypeScript'],
+    techStack: ['Python', 'ML Anomaly Detection', 'NLP Token Embeddings', 'pgvector', 'FastAPI', 'RabbitMQ', 'TypeScript'],
     erpSystems: ['SAP S/4HANA', 'QuickBooks Enterprise', 'Coupa', 'Bill.com'],
     featured: true
   },
@@ -91,7 +92,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: 'Idle Cash Unlocked', value: '$4.2M', improvement: 'Re-allocated to yield accounts' },
       { label: 'Reporting Prep Time', value: '15 Mins', improvement: 'Down from 18 hours/wk' }
     ],
-    techStack: ['Python', 'PyTorch', 'Gemini Pro', 'FastAPI', 'Pandas', 'PostgreSQL'],
+    techStack: ['Python', 'PyTorch / TensorFlow', 'ML Time-Series Forecasting', 'Gemini Pro', 'FastAPI', 'Pandas', 'PostgreSQL'],
     erpSystems: ['NetSuite OneWorld', 'Stripe Sigma', 'Xero', 'Wise API'],
     featured: true
   },
@@ -414,8 +415,8 @@ export const SERVICE_OFFERINGS: ServiceOffering[] = [
 ];
 
 export const TECHNICAL_SKILLS = [
-  { category: 'AI & LLM Orchestration', skills: ['Gemini 2.5/3.0 Multi-Modal', 'LangGraph', 'LangChain', 'LlamaIndex', 'Pydantic Guardrails', 'Structured Output Parsing', 'Vector Search (pgvector)'] },
-  { category: 'Financial Systems & ERPs', skills: ['NetSuite SuiteTalk / SuiteScript', 'SAP S/4HANA APIs', 'QuickBooks Online / Desktop', 'Xero API', 'Stripe Sigma / Treasury', 'Plaid', 'Workday Financials'] },
-  { category: 'Backend & Data Engineering', skills: ['Python (FastAPI, PySpark, Pandas)', 'TypeScript & Node.js', 'PostgreSQL & pgvector', 'Redis', 'Docker & Kubernetes', 'GCP Cloud Run', 'AWS Lambda / SQS'] },
-  { category: 'Financial Domain & Compliance', skills: ['GAAP / IFRS Standards', '3-Way Reconciliation', 'SOX 404 Controls', 'SOC 1 / SOC 2 Compliance', 'SEC 10-K / 10-Q Taxonomy', 'Multi-Entity FX Consolidation'] }
+  { category: 'AI & Machine Learning', skills: ['Python (NumPy, SciPy, Pandas)', 'TensorFlow & PyTorch', 'NLP & LayoutLM Document OCR', 'Machine Learning Classification', 'Vector Similarity (pgvector, FAISS)', 'Time-Series Liquidity Models', 'Fine-tuned Transformer Embeddings'] },
+  { category: 'LLM Orchestration & Agents', skills: ['Gemini 2.5/3.0 Multi-Modal', 'LangGraph Stateful Workflows', 'Structured Pydantic Output', 'Zero-Hallucination Guardrails', 'Multi-Agent Human-in-the-Loop', 'Function & Tool Calling', 'Prompt Engineering for GAAP'] },
+  { category: 'Financial Systems & ERPs', skills: ['NetSuite SuiteTalk / SuiteScript', 'SAP S/4HANA & RFC APIs', 'QuickBooks Online & Enterprise', 'Workday Financials & Adaptive', 'Xero API & Stripe Sigma', 'Plaid & SWIFT MT940 / BAI2', 'Coupa & Bill.com Connectors'] },
+  { category: 'Enterprise Architecture & Cloud', skills: ['Deterministic Double-Entry Rules', 'FastAPI & Async Task Queues', 'PostgreSQL, Redis & RabbitMQ', 'Docker & Kubernetes', 'GCP Cloud Run & AWS Lambda', 'SOX 404 & GAAP Compliance', 'SHA-256 Cryptographic Proofs'] }
 ];

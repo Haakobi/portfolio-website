@@ -13,20 +13,19 @@ import {
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface NavbarProps {
-  onOpenNamecheapGuide: () => void;
   onOpenSandbox: () => void;
 }
 
-export function Navbar({ onOpenNamecheapGuide, onOpenSandbox }: NavbarProps) {
+export function Navbar({ onOpenSandbox }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { name: 'Systems', href: '#sandbox', highlight: true },
-    { name: 'Case Studies', href: '#case-studies' },
+    { name: 'Projects', href: '#projects' },
     { name: 'Architecture', href: '#architecture' },
     { name: 'ROI Model', href: '#roi-calculator' },
     { name: 'Services', href: '#services' },
-    { name: 'About', href: '#about' },
+    { name: 'About Me', href: '#about' },
   ];
 
   return (
@@ -79,21 +78,12 @@ export function Navbar({ onOpenNamecheapGuide, onOpenSandbox }: NavbarProps) {
 
         {/* Actions */}
         <div className="hidden items-center gap-3 md:flex">
-          <button
-            onClick={onOpenNamecheapGuide}
-            className="flex items-center gap-1.5 rounded-sm border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-mono font-medium text-slate-700 hover:bg-white hover:border-slate-300 hover:text-slate-900 transition-colors shadow-xs"
-            title="Configure hakobnahapetyan.com with Namecheap DNS"
-          >
-            <Globe className="h-3.5 w-3.5 text-emerald-600" />
-            <span>Namecheap Setup</span>
-          </button>
-
           <a
             href="#contact"
             className="flex items-center gap-1.5 rounded-sm bg-slate-900 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white hover:bg-slate-800 transition-colors shadow-xs"
           >
             <Calendar className="h-3.5 w-3.5 text-emerald-400" />
-            <span>Contact</span>
+            <span>Contact & Consultation</span>
           </a>
         </div>
 
@@ -127,16 +117,6 @@ export function Navbar({ onOpenNamecheapGuide, onOpenSandbox }: NavbarProps) {
               </a>
             ))}
             <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenNamecheapGuide();
-                }}
-                className="flex items-center justify-center gap-2 rounded-sm border border-slate-200 bg-slate-50 py-2.5 text-xs font-mono text-slate-700"
-              >
-                <Globe className="h-4 w-4 text-emerald-600" />
-                Namecheap DNS Deployment Guide
-              </button>
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}

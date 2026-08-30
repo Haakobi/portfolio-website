@@ -1,11 +1,9 @@
 import { Terminal, Globe, Mail, ArrowUp, ShieldCheck, Heart } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
-interface FooterProps {
-  onOpenNamecheapGuide: () => void;
-}
+interface FooterProps {}
 
-export function Footer({ onOpenNamecheapGuide }: FooterProps) {
+export function Footer({}: FooterProps) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -44,32 +42,32 @@ export function Footer({ onOpenNamecheapGuide }: FooterProps) {
             </span>
             <ul className="space-y-1.5">
               <li><a href="#sandbox" className="text-slate-600 hover:text-emerald-700 transition-colors">Live Sandbox</a></li>
-              <li><a href="#case-studies" className="text-slate-600 hover:text-emerald-700 transition-colors">Case Studies</a></li>
+              <li><a href="#projects" className="text-slate-600 hover:text-emerald-700 transition-colors">Projects & Case Studies</a></li>
               <li><a href="#architecture" className="text-slate-600 hover:text-emerald-700 transition-colors">Architecture Spec</a></li>
               <li><a href="#roi-calculator" className="text-slate-600 hover:text-emerald-700 transition-colors">ROI Calculator</a></li>
               <li><a href="#services" className="text-slate-600 hover:text-emerald-700 transition-colors">Services</a></li>
-              <li><a href="#about" className="text-slate-600 hover:text-emerald-700 transition-colors">About Hakob</a></li>
+              <li><a href="#about" className="text-slate-600 hover:text-emerald-700 transition-colors">About Me</a></li>
+              <li><a href="#contact" className="text-slate-600 hover:text-emerald-700 transition-colors">Contact Form</a></li>
             </ul>
           </div>
 
-          {/* Col 3: Domain & Infrastructure */}
+          {/* Col 3: Contact & Channels */}
           <div className="space-y-2.5 font-mono">
             <span className="text-slate-900 font-bold block uppercase tracking-wider text-[11px]">
-              Domain & Hosting
+              Direct Contact
             </span>
             <ul className="space-y-1.5 text-slate-600">
+              <li><span>Portfolio: {PERSONAL_INFO.domain}</span></li>
+              <li><span>Location: {PERSONAL_INFO.location}</span></li>
               <li>
-                <button
-                  onClick={onOpenNamecheapGuide}
-                  className="text-left text-emerald-700 hover:text-emerald-800 font-semibold transition-colors flex items-center gap-1"
+                <a 
+                  href={`mailto:${PERSONAL_INFO.email}`} 
+                  className="text-emerald-700 hover:text-emerald-800 font-semibold transition-colors flex items-center gap-1.5"
                 >
-                  <span>Namecheap DNS Setup</span>
-                  <Globe className="h-3 w-3" />
-                </button>
+                  <Mail className="h-3 w-3" />
+                  <span>{PERSONAL_INFO.email}</span>
+                </a>
               </li>
-              <li><span>Domain: {PERSONAL_INFO.domain}</span></li>
-              <li><span>Registrar: Namecheap.com</span></li>
-              <li><a href={`mailto:${PERSONAL_INFO.email}`} className="hover:text-slate-900">{PERSONAL_INFO.email}</a></li>
             </ul>
           </div>
 

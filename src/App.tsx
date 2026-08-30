@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { InteractiveWorkflowSandbox } from './components/InteractiveWorkflowSandbox';
@@ -9,11 +8,8 @@ import { ServicesSection } from './components/ServicesSection';
 import { AboutSection } from './components/AboutSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { NamecheapDomainGuideModal } from './components/NamecheapDomainGuideModal';
 
 export default function App() {
-  const [namecheapGuideOpen, setNamecheapGuideOpen] = useState(false);
-
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -26,7 +22,6 @@ export default function App() {
       
       {/* Top sticky navigation */}
       <Navbar
-        onOpenNamecheapGuide={() => setNamecheapGuideOpen(true)}
         onOpenSandbox={() => scrollToSection('sandbox')}
       />
 
@@ -57,13 +52,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer onOpenNamecheapGuide={() => setNamecheapGuideOpen(true)} />
-
-      {/* Namecheap & Custom Domain Configuration Modal */}
-      <NamecheapDomainGuideModal
-        isOpen={namecheapGuideOpen}
-        onClose={() => setNamecheapGuideOpen(false)}
-      />
+      <Footer />
 
     </div>
   );
