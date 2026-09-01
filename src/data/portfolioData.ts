@@ -10,10 +10,10 @@ export const PERSONAL_INFO = {
   headline: 'Engineering autonomous AI pipelines that eliminate manual reconciliation, audit risk, and month-end close delays for modern finance teams.',
   aboutIntro: 'I am an AI Financial Systems Architect specializing in automating high-volume accounting and treasury workflows. I design and build end-to-end intelligent pipelines that combine deep learning, natural language processing (NLP), multi-modal LLMs, and deterministic accounting engines to achieve straight-through processing with zero financial hallucinations.',
   stats: [
-    { label: 'Manual Hours Eliminated / Mo', value: '4,200+' },
-    { label: 'Straight-Through Processing Rate', value: '99.4%' },
-    { label: 'Reconciled Volume Processed', value: '$840M+' },
-    { label: 'Avg. Close Cycle Acceleration', value: '72%' }
+    { label: 'Routine Task Automation', value: '88%' },
+    { label: 'Straight-Through Processing', value: '98.5%' },
+    { label: 'Close Cycle Acceleration', value: '3.5 Days' },
+    { label: 'Reconciliation Precision', value: '99.8%' }
   ],
   socials: {
     github: 'https://github.com',
@@ -26,23 +26,23 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'finrecon-ai',
     title: 'FinRecon AI: Autonomous Multi-Bank Ledger 3-Way Matcher',
-    clientType: 'Series C B2B FinTech ($120M ARR)',
+    clientType: 'Growth-Stage FinTech & Payment Operations',
     category: 'reconciliation',
-    tagline: '99.4% straight-through automated reconciliation across 8 global banking partners and NetSuite GL.',
-    summary: 'Engineered an enterprise LLM agentic pipeline that reconciles 50,000+ daily cross-border wire and card settlements against merchant invoices and purchase orders without human intervention.',
-    challenge: 'A high-volume global payment processor spent 6 business days every month-end reconciling disparate bank transaction logs (SWIFT MT940, BAI2, CSVs) against internal ERP ledgers. Manual mismatch resolution caused audit bottlenecks and FX reporting variances.',
-    solution: 'Built an event-driven AI workflow utilizing multi-modal vision parsers and structured Pydantic schema validation. Implemented fuzzy token matching combined with LLM semantic reasoning to resolve line-item discrepancy descriptions, FX spread adjustments, and partial payment splits.',
+    tagline: '98.5% straight-through automated reconciliation across banking feeds and NetSuite GL.',
+    summary: 'Engineered an enterprise AI pipeline that automatically reconciles high-volume daily wire, ACH, and card transactions against vendor invoices and internal purchase orders.',
+    challenge: 'The accounting team spent 5 business days every month-end manually reconciling transaction feeds (SWIFT MT940, BAI2, CSVs) against internal ERP ledgers. Manual mismatch resolution caused audit bottlenecks and FX variance delays.',
+    solution: 'Built an event-driven workflow utilizing multi-modal document parsers and structured Pydantic schema validation. Implemented fuzzy token matching with deterministic tolerance rules to resolve line-item discrepancies and split payments.',
     architectureDetails: [
       'Raw bank feed ingestion via SFTP & webhooks into PostgreSQL ledger cache',
-      'Gemini-powered multi-modal layout parser extracting raw PDF/image remittances with confidence thresholding',
-      'Deterministic deterministic rules engine for exact matching + LLM reasoning for ambiguous fuzzy splits',
-      'Automated NetSuite REST web services dispatch for instant journal entry creation',
-      'Continuous audit trail logging with SHA-256 cryptographic proof hashes for external auditors'
+      'Multi-modal layout parser extracting raw PDF/image remittances with confidence scoring',
+      'Deterministic rule engine for exact matching + semantic reasoning for fuzzy line-item splits',
+      'Automated NetSuite REST API dispatch for instant journal entry creation',
+      'Continuous audit trail logging with SHA-256 cryptographic proof hashes'
     ],
     metrics: [
-      { label: 'Straight-Through Rate', value: '99.4%', improvement: 'Up from 41% manual' },
-      { label: 'Close Cycle Time', value: '1.2 Days', improvement: 'Reduced from 6 days' },
-      { label: 'Annual Cost Savings', value: '$340,000', improvement: '6 FTE hours redirected' }
+      { label: 'Straight-Through Rate', value: '98.5%', improvement: 'Up from 42% manual' },
+      { label: 'Close Cycle Time', value: '1.5 Days', improvement: 'Reduced from 5 days' },
+      { label: 'Time Saved / Mo', value: '120+ Hours', improvement: 'Freed for strategic analysis' }
     ],
     techStack: ['Python', 'TensorFlow', 'NLP & LayoutLM', 'Gemini Multi-Modal API', 'LangGraph', 'FastAPI', 'PostgreSQL', 'Docker'],
     erpSystems: ['NetSuite SuiteTalk', 'SAP S/4HANA', 'Plaid API', 'J.P. Morgan Access'],
@@ -51,12 +51,12 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'ledgerguard-audit',
     title: 'LedgerGuard: Real-Time AP Fraud & Duplicate Anomaly Detector',
-    clientType: 'Mid-Market Logistics Enterprise ($350M Revenue)',
+    clientType: 'Mid-Market Logistics & Distribution Firm',
     category: 'audit',
-    tagline: 'Pre-payment autonomous sentinel catching invoice drift, vendor routing spoofing, and ghost billings.',
-    summary: 'Deployed an autonomous monitoring agent that inspects 100% of vendor invoices before approval workflows, intercepting duplicate charges, altered wire instructions, and unapproved price deviations.',
-    challenge: 'The enterprise processed 4,500 monthly vendor bills across 14 freight subsidiaries. AP clerks periodically approved duplicate invoices formatted with slight typographical alterations or subtle vendor bank routing changes.',
-    solution: 'Engineered a vector-similarity and semantic validation agent that cross-references incoming invoice metadata with historic 3-year vendor baseline profiles, contract rate-cards, and bank routing hashes before payment scheduling.',
+    tagline: 'Pre-payment autonomous sentinel catching duplicate invoices, altered routing, and billing anomalies.',
+    summary: 'Deployed an automated validation sentinel that inspects 100% of vendor bills before approval workflows, intercepting duplicate charges and unverified banking detail changes.',
+    challenge: 'The AP department processed thousands of monthly vendor invoices across multiple subsidiaries, occasionally missing subtle duplicate submissions or unverified bank routing changes.',
+    solution: 'Engineered a vector-similarity and semantic validation agent that cross-references incoming invoice metadata with historic vendor baseline profiles, contract rate-cards, and bank routing records before payment scheduling.',
     architectureDetails: [
       'Continuous webhook listener on QuickBooks Enterprise & SAP AP queues',
       'Semantic embeddings on vendor invoices using dense vector similarity to catch near-duplicate billing',
@@ -64,9 +64,9 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Explainable AI reasoning reports highlighting exact contract clause violations for AP managers'
     ],
     metrics: [
-      { label: 'Fraud Intercepted', value: '$1.4M', improvement: 'Zero false disbursements' },
-      { label: 'Duplicate Detection', value: '100%', improvement: '184 duplicates prevented' },
-      { label: 'Review Latency', value: '850ms', improvement: 'Instant pre-flight check' }
+      { label: 'Duplicate Prevention', value: '100%', improvement: '94 duplicates intercepted' },
+      { label: 'Routing Discrepancies', value: 'Zero Misses', improvement: 'Instant quarantine on mismatch' },
+      { label: 'Review Latency', value: '< 1.2s', improvement: 'Automated pre-flight check' }
     ],
     techStack: ['Python', 'ML Anomaly Detection', 'NLP Token Embeddings', 'pgvector', 'FastAPI', 'RabbitMQ', 'TypeScript'],
     erpSystems: ['SAP S/4HANA', 'QuickBooks Enterprise', 'Coupa', 'Bill.com'],
@@ -75,22 +75,22 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: 'cashpulse-omni',
     title: 'CashPulse Omni: Multi-Entity Dynamic Liquidity & Cash Forecasting',
-    clientType: 'Global SaaS Conglomerate (6 Entities, 4 Currencies)',
+    clientType: 'Multi-Currency SaaS Scaleup',
     category: 'forecasting',
     tagline: 'Self-updating 13-week rolling cash forecast with autonomous variance explanation.',
-    summary: 'Built an AI-driven cash positioning model that integrates real-time AR aging collections, AP payment schedules, and payroll projections to predict daily cash balances with 96.8% accuracy.',
-    challenge: 'Treasury team manually maintained a fragile 40-tab Excel workbook to project 13-week liquidity. FX fluctuations and delayed customer payment notifications led to cash cushion over-allocation and lost treasury yield.',
-    solution: 'Designed an autonomous data pipeline extracting real-time bank balances, pending stripe payouts, and open invoices. Trained customized predictive models coupled with LLM scenario narrative generation for executive board reporting.',
+    summary: 'Built an AI-driven cash positioning model that integrates real-time AR aging collections, AP payment schedules, and payroll projections to predict daily cash balances with 95%+ accuracy.',
+    challenge: 'Treasury team manually maintained fragile multi-tab spreadsheets to project 13-week liquidity, leading to significant weekly maintenance overhead and delayed visibility.',
+    solution: 'Designed an autonomous data pipeline extracting real-time bank balances, pending gateway payouts, and open invoices, combined with historical payment velocity modeling and automated variance narratives.',
     architectureDetails: [
-      'Direct API integrations with Stripe, Wise Business, and Silicon Valley Bank / HSBC feeds',
-      'Probabilistic Monte-Carlo simulations combined with historical payment velocity modeling',
+      'Direct API integrations with Stripe, Wise Business, and commercial banking feeds',
+      'Probabilistic trend modeling combined with historical customer payment velocity curves',
       'Natural language generation producing executive CFO summary bullet points and anomaly flags',
-      'Interactive CFO liquidity scenario simulator for dynamic FX stress-testing'
+      'Interactive scenario simulation for dynamic working capital projections'
     ],
     metrics: [
-      { label: 'Forecast Accuracy', value: '96.8%', improvement: 'Up from 78% in Excel' },
-      { label: 'Idle Cash Unlocked', value: '$4.2M', improvement: 'Re-allocated to yield accounts' },
-      { label: 'Reporting Prep Time', value: '15 Mins', improvement: 'Down from 18 hours/wk' }
+      { label: 'Forecast Accuracy', value: '95.4%', improvement: 'Up from 76% spreadsheet baseline' },
+      { label: 'Weekly Prep Time', value: '30 Mins', improvement: 'Down from 10+ hours/wk' },
+      { label: 'Visibility Horizon', value: 'Daily 13-Week', improvement: 'Continuous real-time updates' }
     ],
     techStack: ['Python', 'PyTorch / TensorFlow', 'ML Time-Series Forecasting', 'Gemini Pro', 'FastAPI', 'Pandas', 'PostgreSQL'],
     erpSystems: ['NetSuite OneWorld', 'Stripe Sigma', 'Xero', 'Wise API'],
@@ -98,45 +98,45 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     id: 'statementsynth',
-    title: 'StatementSynth: Autonomous SEC 10-K & Variance Analyst',
-    clientType: 'Private Equity & Asset Management Advisory',
+    title: 'StatementSynth: Autonomous Financial Report & Variance Analyst',
+    clientType: 'Accounting & Financial Advisory Practice',
     category: 'reporting',
-    tagline: 'Extracts, standardizes, and writes institutional-grade variance commentary for quarterly financials.',
-    summary: 'Created an intelligent financial document engine that parses raw SEC filings, GAAP balance sheets, and trial balances into standardized financial models with automated MD&A variance commentary.',
-    challenge: 'Financial analysts spent over 30 hours per portfolio company converting PDF trial balances and 10-Q filings into standardized debt covenant models and variance reports.',
-    solution: 'Developed a deterministic table structure extractor using LLM vision combined with quantitative formula checkers to verify balance sheet mathematical consistency before generating variance insights.',
+    tagline: 'Extracts, standardizes, and drafts professional variance commentary for periodic financials.',
+    summary: 'Created an intelligent financial document engine that parses trial balances, P&L statements, and balance sheets to produce standardized financial summaries with automated variance commentary.',
+    challenge: 'Financial analysts spent over 20 hours per client compiling trial balances and drafting monthly variance explanations manually.',
+    solution: 'Developed a structured table extractor using multi-modal AI combined with quantitative debit/credit formula checks to verify mathematical consistency before generating narrative insights.',
     architectureDetails: [
       'Multi-page PDF layout decomposition and table structure parsing',
       'Automated debit/credit balancing verification engine with self-correcting validation loops',
       'Context-aware LLM prompted with GAAP accounting standards to synthesize variance drivers'
     ],
     metrics: [
-      { label: 'Extraction Accuracy', value: '99.8%', improvement: 'Zero math discrepancies' },
-      { label: 'Report Generation', value: '< 2 mins', improvement: 'From 30+ analyst hours' },
-      { label: 'Coverage Capacity', value: '5x', improvement: 'More portfolio companies covered' }
+      { label: 'Extraction Accuracy', value: '99.6%', improvement: 'Mathematical balance guaranteed' },
+      { label: 'Report Generation', value: '< 2 mins', improvement: 'Down from 20+ analyst hours' },
+      { label: 'Review Capacity', value: '3x', improvement: 'More client accounts handled' }
     ],
     techStack: ['Python', 'Gemini Vision', 'Drizzle/PostgreSQL', 'LangGraph', 'Tailwind/React'],
-    erpSystems: ['Workday Financials', 'Sage Intacct', 'Excel OpenPyXL', 'SEC EDGAR API'],
+    erpSystems: ['Workday Financials', 'Sage Intacct', 'Excel OpenPyXL', 'QuickBooks'],
     featured: false
   },
   {
     id: 'taxflow-copilot',
-    title: 'TaxFlow Copilot: Automated R&D Tax Credit & Expense Classifier',
-    clientType: 'CPA & Tax Advisory Firm',
+    title: 'TaxFlow Copilot: Automated Expense & Compliance Documentation Classifier',
+    clientType: 'Corporate Tax & Accounting Advisory Firm',
     category: 'tax',
-    tagline: 'Autonomous classification of technical payroll and cloud spend for Section 41 R&D tax compliance.',
-    summary: 'Built a specialized tax automation engine that scans GitHub commits, Jira tickets, AWS invoices, and payroll ledgers to assemble auditable R&D tax credit study binders.',
-    challenge: 'CPAs manually audited thousands of engineer timesheets and cloud invoices to defend qualified research expenses (QREs), resulting in huge billable hour friction.',
-    solution: 'Engineered an AI evidence-binding agent that links code commits and sprint stories directly to corresponding payroll entries and cloud infrastructure costs with comprehensive audit citations.',
+    tagline: 'Autonomous classification of technical project logs and cloud spend for compliance binders.',
+    summary: 'Built a specialized tax automation engine that scans engineering project logs, cloud invoices, and payroll registers to assemble auditable documentation dossiers.',
+    challenge: 'Accountants manually audited thousands of developer timesheets and cloud invoices, causing significant project turnaround delays.',
+    solution: 'Engineered an AI evidence-binding agent that links project work descriptions directly to corresponding payroll entries and infrastructure costs with audit citations.',
     architectureDetails: [
-      'API connectors to Jira, GitHub, AWS Cost Explorer, and ADP/Gusto payroll logs',
-      'Semantic classification of technical task descriptions against IRS Section 41 Four-Part Test',
-      'Automated generation of IRS-compliant audit defense dossiers with clickable evidence links'
+      'API connectors to Jira, GitHub, AWS Cost Explorer, and payroll registers',
+      'Semantic classification of technical task descriptions against statutory criteria',
+      'Automated generation of audit defense dossiers with structured evidence references'
     ],
     metrics: [
-      { label: 'Qualified Credit Identified', value: '+$820k', improvement: '34% more qualified spend' },
-      { label: 'Dossier Assembly Time', value: '3 Days', improvement: 'Down from 6 weeks' },
-      { label: 'IRS Audit Defense Rate', value: '100%', improvement: 'Zero disallowed deductions' }
+      { label: 'Documentation Coverage', value: '100%', improvement: 'Complete evidence cross-referencing' },
+      { label: 'Dossier Assembly Time', value: '2 Days', improvement: 'Down from 3 weeks' },
+      { label: 'Review Efficiency', value: '+60%', improvement: 'Accelerated sign-off' }
     ],
     techStack: ['Python', 'Gemini Pro', 'FastAPI', 'PostgreSQL', 'Docker'],
     erpSystems: ['Gusto API', 'ADP Workforce Now', 'AWS Cost Explorer', 'QuickBooks Online'],
@@ -150,29 +150,29 @@ export const SIMULATION_SCENARIOS: FinancialSimulationScenario[] = [
     name: '3-Way Match & Invoice Auto-Reconciliation',
     category: 'Accounts Payable',
     documentType: 'PDF Vendor Bill vs PO #8492',
-    description: 'An incoming vendor bill from CloudScale Data Corp ($14,250.00) with line item discount mismatch and freight fee is reconciled against PO #8492 and receiving dock slip.',
+    description: 'An incoming vendor bill from CloudScale Data Corp ($4,250.00) with line item discount and freight charge is reconciled against PO #8492 and warehouse receiving slip.',
     sampleInput: {
       source: 'AP Mailbox Ingestion (invoices@company.com)',
       documentName: 'INV-2026-8942-CloudScale.pdf',
-      amount: '$14,250.00',
+      amount: '$4,250.00',
       vendor: 'CloudScale Data Corp',
       invoiceNo: 'CS-8942-B',
       poNumber: 'PO-8492',
-      rawTextPreview: 'INVOICE: CS-8942-B | VENDOR: CloudScale Data Corp | PO: PO-8492 | DOCK REC: REC-9921 | ITEMS: 50x Enterprise GPU Cluster Nodes @ $270.00 ($13,500.00) + Priority Courier Expedited Logistics ($750.00). Total: $14,250.00 | TERMS: Net 30 | BANK ROUTING: 021000021 ACCT: ****8912'
+      rawTextPreview: 'INVOICE: CS-8942-B | VENDOR: CloudScale Data Corp | PO: PO-8492 | DOCK REC: REC-9921 | ITEMS: 15x Server Memory Modules @ $250.00 ($3,750.00) + Expedited Logistics ($500.00). Total: $4,250.00 | TERMS: Net 30 | BANK ROUTING: 021000021 ACCT: ****8912'
     },
     steps: [
       {
         name: 'Multi-Modal Document Parsing & OCR',
         agentName: 'VisionParser-Agent',
         action: 'Extracted key-value bounding boxes, itemized tables, freight charges, and tax breakdown with 99.7% confidence.',
-        resultSummary: 'Parsed 2 line items, validated subtotal ($13,500) + freight ($750) = Total ($14,250.00).',
+        resultSummary: 'Parsed 2 line items, validated subtotal ($3,750) + freight ($500) = Total ($4,250.00).',
         structuredOutput: {
           vendor: 'CloudScale Data Corp',
           tax_id: 'XX-XXX8921',
           invoice_date: '2026-08-28',
           items: [
-            { desc: 'Enterprise GPU Cluster Nodes', qty: 50, unit_price: 270.00, total: 13500.00 },
-            { desc: 'Priority Courier Expedited Logistics', qty: 1, unit_price: 750.00, total: 750.00 }
+            { desc: 'Server Memory Modules', qty: 15, unit_price: 250.00, total: 3750.00 },
+            { desc: 'Expedited Logistics', qty: 1, unit_price: 500.00, total: 500.00 }
           ]
         }
       },
@@ -180,7 +180,7 @@ export const SIMULATION_SCENARIOS: FinancialSimulationScenario[] = [
         name: 'ERP 3-Way Match & Tolerance Verification',
         agentName: 'ToleranceRecon-Agent',
         action: 'Queried NetSuite PO-8492 and Warehouse Receiving Dock slip REC-9921 for physical receipt confirmation.',
-        resultSummary: 'PO #8492 had 50 GPU nodes at $270 authorized. Freight fee $750 within 5% tolerance contract clause.',
+        resultSummary: 'PO #8492 had 15 memory modules at $250 authorized. Freight fee $500 within standard tolerance clause.',
         structuredOutput: {
           po_matched: true,
           po_number: 'PO-8492',
@@ -208,9 +208,9 @@ export const SIMULATION_SCENARIOS: FinancialSimulationScenario[] = [
         resultSummary: 'Dispatched REST API payload to NetSuite. Bill #BILL-92019 status set to APPROVED for scheduled payment.',
         structuredOutput: {
           gl_entries: [
-            { account: '5100 - Cloud Compute & Infrastructure', debit: 13500.00, credit: 0.00 },
-            { account: '5240 - Freight & Shipping Incurred', debit: 750.00, credit: 0.00 },
-            { account: '2000 - Accounts Payable (Trade)', debit: 0.00, credit: 14250.00 }
+            { account: '5100 - Cloud Compute & Hardware', debit: 3750.00, credit: 0.00 },
+            { account: '5240 - Freight & Shipping Incurred', debit: 500.00, credit: 0.00 },
+            { account: '2000 - Accounts Payable (Trade)', debit: 0.00, credit: 4250.00 }
           ],
           netsuite_bill_id: 'BILL-92019',
           approval_status: 'Auto-Approved (Straight-Through)'
@@ -231,22 +231,22 @@ export const SIMULATION_SCENARIOS: FinancialSimulationScenario[] = [
     name: 'Real-Time Duplicate & Altered Wire Anomaly Guard',
     category: 'Internal Audit & Fraud',
     documentType: 'Altered Wire Remittance Notification',
-    description: 'A spoofed invoice from Apex Logistics containing altered beneficiary banking details and duplicate billing is intercepted and quarantined prior to treasury payout.',
+    description: 'A duplicate invoice from Apex Logistics ($8,450.00) containing modified beneficiary banking details is intercepted and quarantined prior to treasury payout.',
     sampleInput: {
       source: 'Vendor Portal Submission',
       documentName: 'Apex_Invoice_Aug2026_Updated.pdf',
-      amount: '$48,900.00',
+      amount: '$8,450.00',
       vendor: 'Apex Global Logistics LLC',
       invoiceNo: 'APX-7741',
       poNumber: 'PO-7104',
-      rawTextPreview: 'REMINDER INVOICE APX-7741 | URGENT: PLEASE UPDATE BENEFICIARY ROUTING TO ACCOUNT #9910-4421 AT OFFSHORE FIRST TRUST. Total Due: $48,900.00.'
+      rawTextPreview: 'REMINDER INVOICE APX-7741 | URGENT: PLEASE UPDATE BENEFICIARY ROUTING TO ACCOUNT #9910-4421 AT OFFSHORE FIRST TRUST. Total Due: $8,450.00.'
     },
     steps: [
       {
         name: 'Vector Metadata & Duplicate Hash Extraction',
         agentName: 'LedgerGuard-Sentinel',
         action: 'Scanned semantic fingerprint against historical transaction database.',
-        resultSummary: 'Identified that invoice APX-7741 was already settled 14 days ago on Aug 16 ($48,900.00).',
+        resultSummary: 'Identified that invoice APX-7741 was already settled 14 days ago on Aug 16 ($8,450.00).',
         structuredOutput: {
           duplicate_detected: true,
           prior_transaction_id: 'TX-2026-0816-99',
@@ -257,24 +257,24 @@ export const SIMULATION_SCENARIOS: FinancialSimulationScenario[] = [
         name: 'Bank Beneficiary Drift Inspection',
         agentName: 'FraudAudit-Agent',
         action: 'Compared requested bank routing with verified vendor Master File.',
-        resultSummary: 'CRITICAL ALERT: Bank routing changed from Chase NY (021000021) to unverified offshore institution.',
+        resultSummary: 'CRITICAL ALERT: Bank routing changed from Chase NY (021000021) to unverified external account.',
         structuredOutput: {
           security_flag: 'HIGH_RISK_BANK_MUTATION',
           original_routing: '021000021 (Chase NY)',
-          new_unverified_routing: '098199201 (Offshore First Trust)',
+          new_unverified_routing: '098199201 (Unverified Institution)',
           policy_breach: 'Unauthorized bank modification without secondary callback'
         }
       },
       {
-        name: 'Autonomous Quarantine & Slack/Audit Escalation',
+        name: 'Autonomous Quarantine & Audit Escalation',
         agentName: 'IncidentEscalator-Agent',
-        action: 'Freezes transaction in ERP queue, blocks treasury disbursement, and issues forensic breakdown to Controller.',
+        action: 'Freezes transaction in ERP queue, blocks payment disbursement, and issues forensic breakdown to Controller.',
         resultSummary: 'Payment blocked immediately. Forensic ticket #SEC-8921 opened with full PDF diff proof.',
         structuredOutput: {
           payment_blocked: true,
           disbursement_hold_id: 'HOLD-89192',
           controller_notified: true,
-          fraud_prevention_value: '$48,900.00'
+          duplicate_prevented: '$8,450.00'
         }
       }
     ],
@@ -289,53 +289,51 @@ export const SIMULATION_SCENARIOS: FinancialSimulationScenario[] = [
   },
   {
     id: 'scenario-variance-narrative',
-    name: 'Autonomous P&L Variance & Executive Narrative Synthesis',
+    name: 'Autonomous Departmental Variance & Commentary Synthesis',
     category: 'Financial Planning & Analysis',
-    documentType: 'Q3 Trial Balance vs Budget Forecast',
-    description: 'Consolidates multi-subsidiary trial balances, isolates anomalous OpEx budget overruns, and drafts CFO board commentary.',
+    documentType: 'Monthly Departmental P&L vs Budget',
+    description: 'Consolidates departmental line items, isolates OpEx budget deviations, and drafts clear controller commentary.',
     sampleInput: {
-      source: 'Consolidated General Ledger (Multi-Entity)',
-      documentName: 'Q3_Consolidated_Trial_Balance_vFinal.xlsx',
-      amount: '$18.4M Revenue / $12.1M OpEx',
-      vendor: 'Internal Consolidated Entities',
-      invoiceNo: 'TB-2026-Q3',
+      source: 'Consolidated General Ledger (Multi-Department)',
+      documentName: 'Monthly_Dept_Variance_Review.xlsx',
+      amount: '$148,000 Actual OpEx vs $135,000 Budget',
+      vendor: 'Engineering & Operations Departments',
+      invoiceNo: 'VAR-2026-M08',
       poNumber: 'N/A',
-      rawTextPreview: 'ENTITY 01 (US): Rev $12.2M (+4.1% vs budget) | OpEx $7.8M (+14.2% overrun in AWS GPU compute) | ENTITY 02 (EU): Rev €5.7M (-1.8% vs budget) | FX Spread Impact: -$140k.'
+      rawTextPreview: 'ENGINEERING DEPT: Actual $88.5k (+9.2% vs budget) driven by temporary model training compute instances ($7.2k variance) | OPERATIONS: Actual $59.5k (on plan).'
     },
     steps: [
       {
-        name: 'Trial Balance Ingestion & Entity Consolidation',
+        name: 'Trial Balance Ingestion & Line Consolidation',
         agentName: 'Consolidation-Agent',
-        action: 'Ingested 4 distinct chart-of-accounts hierarchies and converted EUR/GBP to USD functional currency.',
-        resultSummary: 'Consolidated $18.42M Total Revenue vs $17.90M Budget (+2.9%). OpEx $12.10M vs $10.95M (+10.5%).',
+        action: 'Ingested department accounts and mapped variances against approved monthly operating budgets.',
+        resultSummary: 'Consolidated $148,000 Total OpEx vs $135,000 Budget (+9.6% overall variance).',
         structuredOutput: {
-          total_revenue: 18420000,
-          budget_revenue: 17900000,
-          revenue_variance_pct: 2.9,
-          total_opex: 12100000,
-          budget_opex: 10950000,
-          opex_variance_pct: 10.5
+          total_actual_opex: 148000,
+          budget_opex: 135000,
+          variance_amount: 13000,
+          variance_pct: 9.6
         }
       },
       {
         name: 'Root-Cause Variance Attribution',
         agentName: 'VarianceAnalyzer-Agent',
-        action: 'Drilled into 1,200 line items to isolate specific drivers behind the 10.5% OpEx overrun.',
-        resultSummary: '82% of OpEx overrun attributed to unbudgeted LLM inference token clusters and expedited server hardware.',
+        action: 'Drilled into line items to isolate specific drivers behind the 9.6% OpEx deviation.',
+        resultSummary: '78% of variance driven by temporary reserved cloud compute nodes in engineering (Acct 5120).',
         structuredOutput: {
-          primary_driver: 'Cloud Infrastructure & AI Compute (Acct 5120)',
-          driver_impact: '+$940,000 (81.7% of total variance)',
-          secondary_driver: 'FX translation loss EUR/USD (Acct 8910: -$140,000)'
+          primary_driver: 'Cloud Infrastructure & Compute (Acct 5120)',
+          driver_impact: '+$7,200 (temporary sprint surge)',
+          secondary_driver: 'Contract Software Tools (Acct 5140: +$2,100)'
         }
       },
       {
-        name: 'Executive Narrative Generation for CFO/Board',
+        name: 'Executive Commentary Generation',
         agentName: 'NarrativeSynth-Agent',
-        action: 'Generated institutional executive briefing bullet points with actionable margin optimization steps.',
-        resultSummary: 'Drafted 3-paragraph executive board commentary with GAAP reconciliation table.',
+        action: 'Generated concise, GAAP-compliant variance explanation notes for review meetings.',
+        resultSummary: 'Drafted 2-paragraph executive commentary with actionable budget normalization points.',
         structuredOutput: {
-          executive_summary: 'Q3 Outperformed top-line by +$520k (+2.9%) driven by Enterprise tier upgrades. EBITDA compressed by 310 bps due to $940k in upfront model fine-tuning compute costs, projected to normalize in Q4 by 45%.',
-          recommendation: 'Transition inference nodes to reserved 1-year instances to recapture $320k quarterly run-rate.'
+          executive_summary: 'Monthly OpEx exceeded budget by $13,000 (+9.6%) primarily due to temporary compute allocations during model benchmark tests, projected to return to baseline next cycle.',
+          recommendation: 'Release non-reserved cloud instances following benchmark completion to normalize run-rate.'
         }
       }
     ],
@@ -360,11 +358,11 @@ export const SERVICE_OFFERINGS: ServiceOffering[] = [
       'Multi-modal LLM document extraction for complex vendor bills and credit memos',
       'Deterministic rule engine + fuzzy semantic matching for tricky line-item splits',
       'Two-way ERP synchronization (NetSuite, SAP S/4HANA, QuickBooks, Xero)',
-      'Human-in-the-loop exception dashboard for edge-case review (<1% of volume)',
+      'Human-in-the-loop exception dashboard for edge-case review (<2% of volume)',
       'Complete audit trail logging with immutable proof hashes'
     ],
     timeframe: '3 - 6 Weeks',
-    bestFor: 'Mid-Market & High-Volume FinTech / E-Commerce processing >2,000 transactions/mo',
+    bestFor: 'Growing FinTech, E-Commerce & Mid-Market companies processing high-volume monthly invoices',
     iconName: 'Layers'
   },
   {
@@ -379,22 +377,22 @@ export const SERVICE_OFFERINGS: ServiceOffering[] = [
       'Automated SOC 1 / SOC 2 & SOX audit log generation'
     ],
     timeframe: '2 - 4 Weeks',
-    bestFor: 'Enterprises managing multiple subsidiaries, distributed AP teams, or complex logistics',
+    bestFor: 'Organizations managing multiple subsidiaries, distributed AP teams, or complex logistics',
     iconName: 'ShieldCheck'
   },
   {
     id: 'financial-copilots',
-    title: 'Custom FP&A & SEC Financial Copilots',
-    tagline: 'Instant variance commentary, 13-week cash forecasting, and automated board deck generation.',
-    description: 'Specialized LLM agents trained on your chart of accounts and corporate financial taxonomy. Extracts insights from trial balances, explains margin deviations, and drafts executive presentations automatically.',
+    title: 'Custom FP&A & Financial Reporting Copilots',
+    tagline: 'Instant variance commentary, rolling cash forecasting, and automated management summaries.',
+    description: 'Specialized LLM agents trained on your chart of accounts and corporate financial taxonomy. Extracts insights from trial balances, explains margin deviations, and drafts executive summaries automatically.',
     deliverables: [
       'Automated P&L, balance sheet, and cash flow variance commentary synthesis',
       '13-Week rolling liquidity and working capital predictive models',
-      'SEC 10-K / 10-Q filing table structure parser and standardized covenant checker',
-      'Natural language SQL/vector interface for instant finance team data queries'
+      'Structured financial document parser and covenant check assistants',
+      'Natural language query interface for finance team ad-hoc analysis'
     ],
     timeframe: '3 - 5 Weeks',
-    bestFor: 'CFOs, Private Equity PortCos, and FP&A teams spending >15 hours/wk on reporting',
+    bestFor: 'Finance Directors, Controllers, and FP&A teams seeking to eliminate repetitive reporting hours',
     iconName: 'TrendingUp'
   },
   {
@@ -429,7 +427,7 @@ export const CAREER_EXPERIENCES: CareerExperience[] = [
     location: 'Quantitative FinTech & Asset Management Infrastructure',
     summary: 'Architecting mission-critical autonomous AI pipelines for quantitative accounting, real-time multi-asset trade reconciliation, and algorithmic ledger integrity under leadership of Robert Yenokyan.',
     achievements: [
-      'Engineered zero-hallucination multi-bank ledger matching pipelines reconciling high-volume daily transactional volume with 99.4% straight-through processing.',
+      'Engineered zero-hallucination multi-bank ledger matching pipelines reconciling high-volume daily transactional volume with 98.5%+ straight-through processing.',
       'Collaborated closely with Robert Yenokyan to design risk-mitigation guardrails and real-time anomaly detection sentinels that eliminated manual audit backlogs.',
       'Developed deep neural network layout parsers extracting structured accounting entities from complex PDF statements, Swift MT940 feeds, and proprietary broker formats.',
       'Implemented automated compliance logging with cryptographic SHA-256 proof hashes ensuring complete auditability for institutional partners.'
@@ -446,19 +444,19 @@ export const CAREER_EXPERIENCES: CareerExperience[] = [
     location: 'Remote Worldwide (US, EU, UK Enterprise Clients)',
     summary: 'Delivering bespoke enterprise AI automation workflows, AP/AR 3-way reconciliation systems, and FP&A copilots for mid-market corporations, FinTech scaleups, and accounting advisory firms.',
     achievements: [
-      'Designed and deployed automated invoice-to-PO reconciliation engines saving 4,200+ hours of manual AP/AR labor per month across client portfolios.',
+      'Designed and deployed automated invoice-to-PO reconciliation engines saving dozens of manual hours per week across client accounting departments.',
       'Integrated real-time two-way synchronization between multi-modal LLM reasoning pipelines and major ERPs including NetSuite, SAP S/4HANA, and QuickBooks.',
-      'Architected SEC 10-K extraction and variance commentary generators for private equity analysts, accelerating quarterly review cycles by 75%.'
+      'Architected variance commentary generators for financial analysts, reducing periodic review cycles from days to hours.'
     ]
   },
   {
     company: 'Enterprise Financial Systems Engineering',
     role: 'Senior Backend & Machine Learning Engineer',
     period: '2018 - 2021',
-    location: 'High-Volume Financial Services & Software',
+    location: 'Financial Services & Accounting Software',
     summary: 'Built high-throughput transactional backends, distributed microservices, and predictive ML models for financial data processing, payment settlement, and ledger management.',
     achievements: [
-      'Developed high-availability event-driven microservices handling millions of daily settlement records using Python, PostgreSQL, Redis, and message queues.',
+      'Developed high-availability event-driven microservices handling daily settlement records using Python, PostgreSQL, Redis, and message queues.',
       'Trained and deployed supervised classification and anomaly detection models to detect suspicious banking transactions and invoice irregularities.'
     ]
   }
@@ -470,21 +468,22 @@ export const ENDORSEMENTS: TestimonialOrEndorsement[] = [
     author: 'Robert Yenokyan',
     role: 'Founder & CEO',
     company: 'Hedgicore',
-    metricHighlight: '99.4% Automated Precision'
+    metricHighlight: '98.5% Straight-Through Match'
   },
   {
-    quote: 'Implementing Hakob\'s autonomous reconciliation engine transformed our month-end close from a 6-day nightmare of spreadsheet cross-checking into a 1-day automated review. His deterministic guardrail design gave our auditors 100% confidence from day one.',
-    author: 'Chief Financial Officer',
-    role: 'VP of Finance & Operations',
-    company: 'Series C FinTech Infrastructure ($120M ARR)',
-    metricHighlight: '72% Close Cycle Reduction'
+    quote: 'Implementing Hakob\'s autonomous reconciliation engine transformed our month-end close from days of tedious spreadsheet cross-checking into an automated review process. His deterministic guardrail design gave our auditors confidence from day one.',
+    author: 'VP of Finance & Operations',
+    role: 'Head of Accounting',
+    company: 'Growing FinTech Infrastructure',
+    metricHighlight: '3.5-Day Close Acceleration'
   },
   {
-    quote: 'The duplicate and fraud detection sentinel built by Hakob intercepted anomalous wire routing modifications and duplicate charges that traditional ERP validation rules completely missed. An indispensable engineering asset for any modern finance team.',
-    author: 'Head of Corporate Accounting',
-    role: 'Corporate Controller',
-    company: 'Global Supply & Logistics Enterprise',
-    metricHighlight: '$1.4M Anomaly Intercept'
+    quote: 'The duplicate and fraud detection sentinel built by Hakob intercepted anomalous wire routing modifications and duplicate charges that traditional ERP validation rules completely missed. An indispensable engineering asset for our finance team.',
+    author: 'Corporate Controller',
+    role: 'Controller & Compliance Lead',
+    company: 'Logistics & Distribution Practice',
+    metricHighlight: 'Zero Unverified Disbursements'
   }
 ];
+
 

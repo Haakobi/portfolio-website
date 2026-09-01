@@ -14,6 +14,7 @@ import {
   Clock
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { ProfileCoverCard } from './ProfileCoverCard';
 
 interface HeroSectionProps {
   onOpenSandbox: () => void;
@@ -73,6 +74,11 @@ export function HeroSection({ onOpenSandbox, onOpenRoiCalc }: HeroSectionProps) 
               I am <strong className="text-slate-900 font-semibold">Hakob Nahapetyan</strong>. I architect intelligent automation systems for high-stakes financial workflows, pairing advanced AI models with deterministic accounting guardrails to eliminate manual friction in reporting, bank reconciliation, and risk audit.
             </p>
 
+            {/* Personal Cover / Executive Identity Card */}
+            <div className="mb-10 max-w-xl">
+              <ProfileCoverCard variant="hero" />
+            </div>
+
             {/* Quick action buttons */}
             <div className="flex flex-wrap items-center gap-3 mb-10">
               <a
@@ -106,19 +112,19 @@ export function HeroSection({ onOpenSandbox, onOpenRoiCalc }: HeroSectionProps) 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-slate-100 pt-8">
               <div>
                 <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono tracking-tight">
-                  94%
+                  88%
                 </div>
                 <div className="text-xs uppercase tracking-wider text-slate-500 font-semibold mt-1">
-                  Manual Work Reduction
+                  Routine Task Automation
                 </div>
               </div>
 
               <div>
                 <div className="text-3xl sm:text-4xl font-extrabold text-emerald-600 font-mono tracking-tight">
-                  $2.4M+
+                  3.5 Days
                 </div>
                 <div className="text-xs uppercase tracking-wider text-slate-500 font-semibold mt-1">
-                  Avg. Annual Efficiency Gain
+                  Faster Month-End Close
                 </div>
               </div>
 
@@ -127,7 +133,7 @@ export function HeroSection({ onOpenSandbox, onOpenRoiCalc }: HeroSectionProps) 
                   &lt;1.2s
                 </div>
                 <div className="text-xs uppercase tracking-wider text-slate-500 font-semibold mt-1">
-                  Sub-Second Invoice Audits
+                  Sub-Second Validation
                 </div>
               </div>
             </div>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="400" height="400" fill="url(#bgGrad)"/>
+  <circle cx="200" cy="180" r="160" fill="url(#glow)"/>
+
+  <!-- Minimalist Geometric Seal -->
+  <circle cx="200" cy="175" r="95" fill="#0f172a" stroke="#334155" stroke-width="2.5"/>
+  <circle cx="200" cy="175" r="85" fill="none" stroke="url(#emeraldGrad)" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- Executive Monogram / Silhouette -->
+  <text x="200" y="192" 
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-size="54" 
+        font-weight="800" 
+        fill="#f8fafc" 
+        letter-spacing="2"
+        text-anchor="middle">
+    HN
+  </text>
+
+  <!-- Name & Verification Tag below -->
+  <rect x="70" y="295" width="260" height="34" rx="17" fill="#022c22" stroke="#059669" stroke-width="1.5"/>
+  <circle cx="92" cy="312" r="4.5" fill="#10b981"/>
+  <text x="200" y="318" 
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-size="12" 
+        font-weight="700" 
+        fill="#a7f3d0" 
+        letter-spacing="1.5"
+        text-anchor="middle">
+    HAKOB NAHAPETYAN
+  </text>
+  <text x="200" y="352" 
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+        font-size="11" 
+        font-weight="600" 
+        fill="#64748b" 
+        letter-spacing="1"
+        text-anchor="middle">
+    AI FINANCIAL SYSTEMS ARCHITECT
+  </text>
+</svg>

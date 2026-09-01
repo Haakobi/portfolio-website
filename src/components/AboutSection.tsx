@@ -21,6 +21,7 @@ import {
   Calendar
 } from 'lucide-react';
 import { PERSONAL_INFO, TECHNICAL_SKILLS, CAREER_EXPERIENCES, ENDORSEMENTS } from '../data/portfolioData';
+import { ProfileCoverCard } from './ProfileCoverCard';
 
 export function AboutSection() {
   const principles = [
@@ -92,6 +93,11 @@ export function AboutSection() {
               <span>{PERSONAL_INFO.email}</span>
             </a>
           </div>
+        </div>
+
+        {/* Executive Profile Cover Card with Portrait */}
+        <div className="mb-12">
+          <ProfileCoverCard variant="about" />
         </div>
 
         {/* 3 Key Pillars Banner */}
