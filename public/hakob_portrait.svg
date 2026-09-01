@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Background -->
+    <radialGradient id="bgGlow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#0b1120"/>
+      <stop offset="60%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+
+    <!-- Complex Skin Gradients -->
+    <radialGradient id="foreheadLight" cx="50%" cy="30%" r="45%">
+      <stop offset="0%" stop-color="#fbe2d3"/>
+      <stop offset="50%" stop-color="#f0c6af"/>
+      <stop offset="100%" stop-color="#d99f82"/>
+    </radialGradient>
+
+    <linearGradient id="faceShade" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#cb8f70"/>
+      <stop offset="25%" stop-color="#e8bda5"/>
+      <stop offset="50%" stop-color="#f3cbba"/>
+      <stop offset="75%" stop-color="#e2b298"/>
+      <stop offset="100%" stop-color="#c18364"/>
+    </linearGradient>
+
+    <linearGradient id="neckGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8a5338"/>
+      <stop offset="40%" stop-color="#ab7255"/>
+      <stop offset="100%" stop-color="#804930"/>
+    </linearGradient>
+
+    <!-- Hair & Beard Gradients -->
+    <linearGradient id="hairDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3d291e"/>
+      <stop offset="40%" stop-color="#231710"/>
+      <stop offset="100%" stop-color="#120c08"/>
+    </linearGradient>
+
+    <radialGradient id="beardDensity" cx="50%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#180f0a" stop-opacity="0.98"/>
+      <stop offset="70%" stop-color="#2d1c13" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#3f291e" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Shirt (Navy Oxford) -->
+    <linearGradient id="shirtNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="35%" stop-color="#0f172a"/>
+      <stop offset="70%" stop-color="#080c14"/>
+      <stop offset="100%" stop-color="#020408"/>
+    </linearGradient>
+
+    <filter id="naturalBlur" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.7"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="800" height="800" fill="url(#bgGlow)"/>
+
+  <!-- Torso & Navy Shirt -->
+  <g id="torso">
+    <!-- Shoulders & Chest -->
+    <path d="M140 800 C150 640 220 580 310 565 L400 610 L490 565 C580 580 650 640 660 800 Z" fill="url(#shirtNavy)" filter="url(#softShadow)"/>
+    
+    <!-- Open Collar Fold & Shadow -->
+    <path d="M388 600 L412 600 L410 800 L390 800 Z" fill="#030712"/>
+    
+    <!-- Left Collar -->
+    <path d="M305 560 L360 625 L400 590 L375 550 Z" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+    <!-- Right Collar -->
+    <path d="M495 560 L440 625 L400 590 L425 550 Z" fill="#162032" stroke="#0f172a" stroke-width="2"/>
+  </g>
+
+  <!-- Neck & Throat -->
+  <g id="neck">
+    <path d="M340 480 L340 575 C370 600 430 600 460 575 L460 480 Z" fill="url(#neckGrad)"/>
+    <!-- Throat / Adam's Apple Shadow -->
+    <path d="M385 525 Q400 545 415 525" fill="none" stroke="#683921" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  </g>
+
+  <!-- Head Base -->
+  <g id="head_base">
+    <!-- Ears -->
+    <ellipse cx="272" cy="360" rx="18" ry="32" fill="#c78c6e" transform="rotate(-5 272 360)"/>
+    <ellipse cx="273" cy="360" rx="10" ry="20" fill="#8e5135" opacity="0.5"/>
+    
+    <ellipse cx="528" cy="360" rx="18" ry="32" fill="#b97e60" transform="rotate(5 528 360)"/>
+    <ellipse cx="527" cy="360" rx="10" ry="20" fill="#7d442a" opacity="0.5"/>
+
+    <!-- Head & Jaw Contour -->
+    <path d="M285 320 C280 200 320 160 400 160 C480 160 520 200 515 320 C510 410 485 505 400 505 C315 505 290 410 285 320 Z" fill="url(#faceShade)" filter="url(#softShadow)"/>
+
+    <!-- Forehead Light Tone -->
+    <ellipse cx="400" cy="275" rx="95" ry="65" fill="url(#foreheadLight)"/>
+    
+    <!-- Cheek Highlights -->
+    <ellipse cx="340" cy="370" rx="35" ry="25" fill="#f8d5c4" opacity="0.4" filter="url(#naturalBlur)"/>
+    <ellipse cx="460" cy="370" rx="35" ry="25" fill="#f5cebb" opacity="0.35" filter="url(#naturalBlur)"/>
+  </g>
+
+  <!-- Hair (Hakob's Receding Temples & Clean Haircut) -->
+  <g id="hair">
+    <!-- Main Cranium Dome -->
+    <path d="M280 300 C270 210 300 130 400 125 C500 130 530 210 520 300 C510 215 490 180 400 182 C310 180 290 215 280 300 Z" fill="url(#hairDark)"/>
+    
+    <!-- Forehead Hairline (Natural Widow's Peak with Receding Temples) -->
+    <path d="M298 250 C335 200 375 220 400 226 C425 220 465 200 502 250 C485 195 450 170 400 168 C350 170 315 195 298 250 Z" fill="#1e130c"/>
+    
+    <!-- Short Sideburns -->
+    <path d="M284 280 L292 355 L298 355 L292 280 Z" fill="#20150e"/>
+    <path d="M516 280 L508 355 L502 355 L508 280 Z" fill="#1b110b"/>
+  </g>
+
+  <!-- Eyes & Eyebrows (Calm, Intelligent Hazel-Green Gaze) -->
+  <g id="eyes_and_brows">
+    <!-- Eyebrows -->
+    <path d="M315 288 Q345 272 378 286 Q348 280 315 288 Z" fill="#1b120c" stroke="#1b120c" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M485 288 Q455 272 422 286 Q452 280 485 288 Z" fill="#1b120c" stroke="#1b120c" stroke-width="4.5" stroke-linecap="round"/>
+
+    <!-- Left Eye -->
+    <g transform="translate(325, 302)">
+      <!-- Eyeball Sclera -->
+      <path d="M0 10 Q22 -2 44 10 Q22 22 0 10 Z" fill="#f8fafc"/>
+      <!-- Hazel/Green Iris -->
+      <circle cx="22" cy="10" r="9" fill="#4d5f3a"/>
+      <circle cx="22" cy="10" r="6.5" fill="#364526"/>
+      <circle cx="22" cy="10" r="4" fill="#0f172a"/>
+      <!-- Specular Highlight -->
+      <circle cx="20" cy="8" r="1.8" fill="#ffffff"/>
+      <!-- Upper Eyelid -->
+      <path d="M-2 8 Q22 -3 46 8" fill="none" stroke="#683a24" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M2 13 Q22 23 42 13" fill="none" stroke="#92593f" stroke-width="1.2" opacity="0.6"/>
+    </g>
+
+    <!-- Right Eye -->
+    <g transform="translate(431, 302)">
+      <!-- Eyeball Sclera -->
+      <path d="M0 10 Q22 -2 44 10 Q22 22 0 10 Z" fill="#f8fafc"/>
+      <!-- Hazel/Green Iris -->
+      <circle cx="22" cy="10" r="9" fill="#4d5f3a"/>
+      <circle cx="22" cy="10" r="6.5" fill="#364526"/>
+      <circle cx="22" cy="10" r="4" fill="#0f172a"/>
+      <!-- Specular Highlight -->
+      <circle cx="20" cy="8" r="1.8" fill="#ffffff"/>
+      <!-- Upper Eyelid -->
+      <path d="M-2 8 Q22 -3 46 8" fill="none" stroke="#683a24" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M2 13 Q22 23 42 13" fill="none" stroke="#92593f" stroke-width="1.2" opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- Nose -->
+  <g id="nose">
+    <path d="M396 285 L391 370 Q380 376 386 382 Q400 387 414 382 Q420 376 409 370 L404 285 Z" fill="#c47f5d" opacity="0.25"/>
+    <path d="M390 372 Q400 380 410 372" fill="none" stroke="#89492d" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Nostril Accents -->
+    <ellipse cx="388" cy="376" rx="3.5" ry="2" fill="#421a0c"/>
+    <ellipse cx="412" cy="376" rx="3.5" ry="2" fill="#421a0c"/>
+  </g>
+
+  <!-- Full Trimmed Beard & Mustache -->
+  <g id="beard_and_mouth">
+    <!-- Jaw and Chin Beard Gradient Shadow -->
+    <path d="M290 350 C290 435 325 508 400 508 C475 508 510 435 510 350 C500 395 470 480 400 480 C330 480 300 395 290 350 Z" fill="url(#beardDensity)"/>
+    
+    <!-- Textured Beard Base Overlay -->
+    <path d="M298 360 C306 430 335 495 400 495 C465 495 494 430 502 360 C490 415 455 465 400 465 C345 465 310 415 298 360 Z" fill="#140d09" opacity="0.95"/>
+
+    <!-- Mustache -->
+    <path d="M368 400 Q400 393 432 400 Q400 422 368 400 Z" fill="#1a110b"/>
+    <path d="M372 402 Q400 396 428 402 Q400 418 372 402 Z" fill="#110a07"/>
+
+    <!-- Lips (Natural Male Soft Tone) -->
+    <path d="M380 418 Q400 422 420 418" stroke="#8c4731" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M385 427 Q400 433 415 427" stroke="#68311e" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+    <!-- Soul Patch Under Lip -->
+    <ellipse cx="400" cy="442" rx="7" ry="9" fill="#180f0a"/>
+  </g>
+
+  <!-- Subtle Rim Lighting -->
+  <path d="M285 280 C280 200 320 140 400 138" fill="none" stroke="#60a5fa" stroke-width="1.5" opacity="0.3"/>
+</svg>

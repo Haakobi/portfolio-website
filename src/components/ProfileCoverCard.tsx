@@ -1,19 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   ShieldCheck, 
-  Sparkles, 
-  Camera, 
-  RotateCcw, 
-  ExternalLink, 
   Building2, 
   MapPin, 
   Mail, 
-  CheckCircle, 
   Award,
   Maximize2,
   X,
+  UserCheck,
+  Lock,
   UploadCloud,
-  UserCheck
+  CheckCircle2
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
@@ -22,19 +19,54 @@ interface ProfileCoverCardProps {
   className?: string;
 }
 
-const DEFAULT_AVATAR_PATH = '/avatar.svg';
+const DEFAULT_PORTRAIT = '/portrait.svg';
 
 export function ProfileCoverCard({ variant = 'hero', className = '' }: ProfileCoverCardProps) {
   const [imageSrc, setImageSrc] = useState<string>(() => {
-    return localStorage.getItem('hn_custom_cover_photo') || DEFAULT_AVATAR_PATH;
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('hn_custom_cover_photo') || DEFAULT_PORTRAIT;
+    }
+    return DEFAULT_PORTRAIT;
   });
-  const [imageError, setImageError] = useState(false);
+  
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isOwnerModalOpen, setIsOwnerModalOpen] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Check if user has uploaded a custom real photo
-  const hasCustomPhoto = imageSrc !== DEFAULT_AVATAR_PATH && !imageError;
+  // Check if owner mode is triggered via URL param (?owner=1 or ?admin=1)
+  const [isOwnerMode, setIsOwnerMode] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('owner') === 'true' || urlParams.get('admin') === 'true') {
+        setIsOwnerMode(true);
+      }
+    }
+
+    // Secret shortcut: Alt + Shift + P opens Owner Photo Manager
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.altKey && e.shiftKey && (e.key === 'P' || e.key === 'p')) {
+        setIsOwnerModalOpen(true);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  // Triple click on verified badge triggers Owner access modal discreetly
+  const handleBadgeClick = () => {
+    setClickCount(prev => {
+      const next = prev + 1;
+      if (next >= 3) {
+        setIsOwnerModalOpen(true);
+        return 0;
+      }
+      return next;
+    });
+  };
 
   const processFile = (file: File) => {
     if (!file.type.startsWith('image/')) return;
@@ -42,12 +74,12 @@ export function ProfileCoverCard({ variant = 'hero', className = '' }: ProfileCo
     reader.onload = (event) => {
       const result = event.target?.result as string;
       setImageSrc(result);
-      setImageError(false);
       try {
         localStorage.setItem('hn_custom_cover_photo', result);
       } catch {
         // LocalStorage quota fallback
       }
+      setIsOwnerModalOpen(false);
     };
     reader.readAsDataURL(file);
   };
@@ -70,27 +102,29 @@ export function ProfileCoverCard({ variant = 'hero', className = '' }: ProfileCo
 
   const resetToDefault = () => {
     localStorage.removeItem('hn_custom_cover_photo');
-    setImageSrc(DEFAULT_AVATAR_PATH);
-    setImageError(false);
+    setImageSrc(DEFAULT_PORTRAIT);
+    setIsOwnerModalOpen(false);
   };
 
   if (variant === 'compact') {
     return (
       <div className={`flex items-center gap-3 ${className}`}>
-        <div className="relative h-12 w-12 rounded-xl overflow-hidden border-2 border-emerald-500/40 shadow-sm bg-slate-900 shrink-0">
-          {!imageError ? (
-            <img 
-              src={imageSrc} 
-              alt={PERSONAL_INFO.name} 
-              className="h-full w-full object-cover object-top"
-              referrerPolicy="no-referrer"
-              onError={() => setImageError(true)}
-            />
-          ) : (
-            <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-800 text-emerald-400 font-mono font-bold text-sm">
-              HN
-            </div>
-          )}
+        <div 
+          onClick={() => setIsModalOpen(true)}
+          className="relative h-12 w-12 rounded-xl overflow-hidden border-2 border-emerald-500/40 shadow-sm bg-slate-900 shrink-0 cursor-pointer group"
+        >
+          <img 
+            src={imageSrc} 
+            alt={PERSONAL_INFO.name} 
+            className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+            referrerPolicy="no-referrer"
+            onError={(e) => {
+              // Fallback to portrait.svg if custom fails
+              if (e.currentTarget.src !== DEFAULT_PORTRAIT) {
+                e.currentTarget.src = DEFAULT_PORTRAIT;
+              }
+            }}
+          />
           <span className="absolute bottom-0.5 right-0.5 h-2.5 w-2.5 rounded-full bg-emerald-500 ring-2 ring-white"></span>
         </div>
         <div>
@@ -110,70 +144,39 @@ export function ProfileCoverCard({ variant = 'hero', className = '' }: ProfileCo
 
         <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-6 sm:gap-8">
           
-          {/* Portrait Photo Frame with Drag and Drop */}
-          <div 
-            className="relative shrink-0 group"
-            onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
-            onDragLeave={() => setIsDragging(false)}
-            onDrop={handleDrop}
-          >
-            <div className={`relative h-48 w-48 sm:h-56 sm:w-56 rounded-2xl overflow-hidden border-2 shadow-2xl bg-slate-950 transition-all ${
-              isDragging ? 'border-emerald-400 scale-102 ring-4 ring-emerald-500/20' : 'border-emerald-500/40'
-            }`}>
-              {!imageError ? (
-                <img 
-                  src={imageSrc} 
-                  alt={PERSONAL_INFO.name} 
-                  className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  referrerPolicy="no-referrer"
-                  onError={() => setImageError(true)}
-                />
-              ) : (
-                <div className="h-full w-full flex flex-col items-center justify-center bg-slate-950 p-4 text-center">
-                  <div className="h-16 w-16 rounded-full bg-emerald-950 border border-emerald-700/50 flex items-center justify-center text-emerald-400 font-mono font-bold text-2xl mb-2">
-                    HN
-                  </div>
-                  <span className="text-xs font-mono text-slate-400">Hakob Nahapetyan</span>
-                </div>
-              )}
+          {/* Portrait Photo Frame - Public & Click-to-enlarge */}
+          <div className="relative shrink-0 group">
+            <div 
+              onClick={() => setIsModalOpen(true)}
+              className="relative h-48 w-48 sm:h-56 sm:w-56 rounded-2xl overflow-hidden border-2 border-emerald-500/40 shadow-2xl bg-slate-950 cursor-pointer transition-all duration-300 group-hover:border-emerald-400 group-hover:shadow-emerald-950/40"
+            >
+              <img 
+                src={imageSrc} 
+                alt={PERSONAL_INFO.name} 
+                className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  if (e.currentTarget.src !== DEFAULT_PORTRAIT) {
+                    e.currentTarget.src = DEFAULT_PORTRAIT;
+                  }
+                }}
+              />
 
-              {/* Status Badge */}
-              <div className="absolute top-3 left-3 bg-slate-950/85 backdrop-blur-md px-2.5 py-1 rounded-full border border-emerald-500/30 flex items-center gap-1.5 shadow-sm">
+              {/* Status Badge with triple-click owner trigger */}
+              <div 
+                onClick={(e) => { e.stopPropagation(); handleBadgeClick(); }}
+                className="absolute top-3 left-3 bg-slate-950/85 backdrop-blur-md px-2.5 py-1 rounded-full border border-emerald-500/30 flex items-center gap-1.5 shadow-sm select-none"
+                title="Verified Lead Profile"
+              >
                 <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span className="text-[10px] font-mono font-semibold text-emerald-300 uppercase tracking-wider">Executive Lead</span>
               </div>
 
-              {/* Action Overlays */}
-              <div className="absolute bottom-3 right-3 flex items-center gap-1.5 opacity-90 group-hover:opacity-100 transition-opacity">
-                {hasCustomPhoto && (
-                  <button
-                    type="button"
-                    onClick={() => setIsModalOpen(true)}
-                    className="p-1.5 rounded-lg bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/60 backdrop-blur-xs transition-colors"
-                    title="Expand view"
-                  >
-                    <Maximize2 className="h-3.5 w-3.5" />
-                  </button>
-                )}
-                <button
-                  type="button"
-                  onClick={() => fileInputRef.current?.click()}
-                  className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-emerald-600/90 hover:bg-emerald-500 text-white text-xs font-semibold border border-emerald-400/30 backdrop-blur-xs transition-colors shadow-sm"
-                  title="Upload Real Photo"
-                >
-                  <Camera className="h-3.5 w-3.5" />
-                  <span className="text-[11px]">Photo</span>
-                </button>
+              {/* Discreet expand icon */}
+              <div className="absolute bottom-3 right-3 p-1.5 rounded-lg bg-slate-900/80 text-slate-300 group-hover:text-white border border-slate-700/60 backdrop-blur-xs transition-opacity opacity-75 group-hover:opacity-100">
+                <Maximize2 className="h-3.5 w-3.5" />
               </div>
             </div>
-
-            <input 
-              type="file" 
-              ref={fileInputRef} 
-              onChange={handleImageUpload} 
-              accept="image/*" 
-              className="hidden" 
-            />
           </div>
 
           {/* Identity & Career Meta */}
@@ -192,14 +195,14 @@ export function ProfileCoverCard({ variant = 'hero', className = '' }: ProfileCo
             </div>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
-              Specializing in autonomous zero-hallucination pipelines for high-stakes financial operations, multi-currency trade reconciliation, and double-entry accounting integrity at <strong className="text-white font-semibold">Hedgicore</strong>.
+              Specializing in autonomous zero-hallucination pipelines for high-stakes financial operations, multi-currency trade reconciliation, and double-entry accounting integrity at <strong className="text-white font-semibold">Hedgicore</strong> under leadership of <strong className="text-emerald-300 font-semibold">Robert Yenokyan</strong> (Founder of Bonton AI & Founder/CEO of Hedgicore).
             </p>
 
             {/* Quick Metadata Badges */}
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-1 text-xs font-mono text-slate-300">
               <div className="flex items-center gap-1.5 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700/60">
                 <Building2 className="h-3.5 w-3.5 text-emerald-400" />
-                <span>Hedgicore (Robert Yenokyan)</span>
+                <span>Hedgicore & Bonton AI Ecosystem</span>
               </div>
               <div className="flex items-center gap-1.5 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700/60">
                 <MapPin className="h-3.5 w-3.5 text-emerald-400" />
@@ -211,7 +214,7 @@ export function ProfileCoverCard({ variant = 'hero', className = '' }: ProfileCo
               </div>
             </div>
 
-            {/* Direct Email Action & Photo Upload Trigger */}
+            {/* Contact Action */}
             <div className="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-3">
               <a
                 href={`mailto:${PERSONAL_INFO.email}`}
@@ -221,23 +224,22 @@ export function ProfileCoverCard({ variant = 'hero', className = '' }: ProfileCo
                 <span>{PERSONAL_INFO.email}</span>
               </a>
 
-              <button
-                type="button"
-                onClick={() => fileInputRef.current?.click()}
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-300 hover:text-white bg-slate-800/90 hover:bg-slate-700 border border-slate-700 px-3 py-2 rounded-lg transition-colors"
+              <a
+                href="#case-studies"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-300 hover:text-white bg-slate-800/90 hover:bg-slate-700 border border-slate-700 px-3 py-2 rounded-lg transition-colors"
               >
-                <UploadCloud className="h-3.5 w-3.5 text-emerald-400" />
-                <span>{hasCustomPhoto ? 'Change Photo' : 'Upload Real Photo'}</span>
-              </button>
+                <span>View Engineering Case Studies</span>
+              </a>
 
-              {hasCustomPhoto && (
+              {/* Owner mode indicator only if unlocked */}
+              {isOwnerMode && (
                 <button
                   type="button"
-                  onClick={resetToDefault}
-                  className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-slate-200 transition-colors py-2 px-3 rounded-lg hover:bg-slate-800/50"
+                  onClick={() => setIsOwnerModalOpen(true)}
+                  className="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-400 hover:text-emerald-300 bg-slate-800/60 border border-emerald-500/30 px-2.5 py-1.5 rounded-md transition-colors"
                 >
-                  <RotateCcw className="h-3 w-3" />
-                  <span>Reset</span>
+                  <Lock className="h-3 w-3" />
+                  <span>Owner Photo Settings</span>
                 </button>
               )}
             </div>
@@ -248,12 +250,18 @@ export function ProfileCoverCard({ variant = 'hero', className = '' }: ProfileCo
 
         {/* Modal for Expanded View */}
         {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4">
-            <div className="relative max-w-md w-full bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center shadow-2xl">
+          <div 
+            onClick={() => setIsModalOpen(false)}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 animate-in fade-in duration-200"
+          >
+            <div 
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-md w-full bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center shadow-2xl"
+            >
               <button
                 type="button"
                 onClick={() => setIsModalOpen(false)}
-                className="absolute top-4 right-4 p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white"
+                className="absolute top-4 right-4 p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white transition-colors"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -268,8 +276,82 @@ export function ProfileCoverCard({ variant = 'hero', className = '' }: ProfileCo
               </div>
 
               <h4 className="text-lg font-bold text-white">{PERSONAL_INFO.name}</h4>
-              <p className="text-xs text-emerald-400 font-mono mt-0.5">AI Financial Workflow Automation Architect</p>
+              <p className="text-xs text-emerald-400 font-mono mt-0.5">Lead Financial AI Systems Architect</p>
               <p className="text-xs text-slate-400 mt-2 font-mono">{PERSONAL_INFO.email}</p>
+            </div>
+          </div>
+        )}
+
+        {/* Owner Photo Management Modal (Protected) */}
+        {isOwnerModalOpen && (
+          <div 
+            onClick={() => setIsOwnerModalOpen(false)}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/85 backdrop-blur-md p-4 animate-in fade-in duration-200"
+          >
+            <div 
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-lg w-full bg-slate-900 border border-emerald-500/40 rounded-2xl p-6 shadow-2xl text-left"
+            >
+              <button
+                type="button"
+                onClick={() => setIsOwnerModalOpen(false)}
+                className="absolute top-4 right-4 p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white"
+              >
+                <X className="h-5 w-5" />
+              </button>
+
+              <div className="flex items-center gap-2 text-emerald-400 text-sm font-mono font-bold mb-1">
+                <Lock className="h-4 w-4" />
+                <span>Hakob Nahapetyan • Private Photo Manager</span>
+              </div>
+              <p className="text-xs text-slate-400 mb-5">
+                Upload your raw personal photo. This will be stored securely on your browser as your primary portrait across the portfolio.
+              </p>
+
+              {/* Drag and Drop Zone */}
+              <div 
+                onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
+                onDragLeave={() => setIsDragging(false)}
+                onDrop={handleDrop}
+                onClick={() => fileInputRef.current?.click()}
+                className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all ${
+                  isDragging 
+                    ? 'border-emerald-400 bg-emerald-950/30 ring-4 ring-emerald-500/20' 
+                    : 'border-slate-700 bg-slate-950/60 hover:border-emerald-500/60 hover:bg-slate-950'
+                }`}
+              >
+                <UploadCloud className="h-10 w-10 text-emerald-400 mx-auto mb-3" />
+                <p className="text-sm font-semibold text-white mb-1">
+                  Click to select or drag & drop your photo
+                </p>
+                <p className="text-xs text-slate-400">
+                  PNG, JPG, WEBP up to 10MB
+                </p>
+                <input 
+                  type="file" 
+                  ref={fileInputRef} 
+                  onChange={handleImageUpload} 
+                  accept="image/*" 
+                  className="hidden" 
+                />
+              </div>
+
+              <div className="flex items-center justify-between mt-6 pt-4 border-t border-slate-800 text-xs">
+                <button
+                  type="button"
+                  onClick={resetToDefault}
+                  className="text-slate-400 hover:text-slate-200 transition-colors"
+                >
+                  Reset to default portrait
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setIsOwnerModalOpen(false)}
+                  className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg transition-colors"
+                >
+                  Done
+                </button>
+              </div>
             </div>
           </div>
         )}
@@ -282,48 +364,25 @@ export function ProfileCoverCard({ variant = 'hero', className = '' }: ProfileCo
     <div className={`bg-slate-900 rounded-2xl border border-slate-800 p-5 text-white shadow-xl ${className}`}>
       <div className="flex items-center gap-4">
         
-        {/* Photo Container with quick upload */}
+        {/* Photo Container */}
         <div 
-          className="relative shrink-0 group"
-          onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
-          onDragLeave={() => setIsDragging(false)}
-          onDrop={handleDrop}
+          onClick={() => setIsModalOpen(true)}
+          className="relative shrink-0 group cursor-pointer"
         >
-          <div className={`relative h-20 w-20 sm:h-24 sm:w-24 rounded-xl overflow-hidden border-2 shadow-md bg-slate-950 transition-all ${
-            isDragging ? 'border-emerald-400 scale-105' : 'border-emerald-500/50'
-          }`}>
-            {!imageError ? (
-              <img 
-                src={imageSrc} 
-                alt={PERSONAL_INFO.name} 
-                className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-                onError={() => setImageError(true)}
-              />
-            ) : (
-              <div className="h-full w-full flex items-center justify-center bg-slate-950 text-emerald-400 font-mono font-bold text-lg">
-                HN
-              </div>
-            )}
+          <div className="relative h-20 w-20 sm:h-24 sm:w-24 rounded-xl overflow-hidden border-2 border-emerald-500/50 shadow-md bg-slate-950 transition-all group-hover:border-emerald-400">
+            <img 
+              src={imageSrc} 
+              alt={PERSONAL_INFO.name} 
+              className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+              referrerPolicy="no-referrer"
+              onError={(e) => {
+                if (e.currentTarget.src !== DEFAULT_PORTRAIT) {
+                  e.currentTarget.src = DEFAULT_PORTRAIT;
+                }
+              }}
+            />
             <div className="absolute bottom-1 right-1 h-3 w-3 rounded-full bg-emerald-500 ring-2 ring-slate-900"></div>
           </div>
-
-          <button
-            type="button"
-            onClick={() => fileInputRef.current?.click()}
-            className="absolute -bottom-1 -left-1 p-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-[10px] shadow-sm"
-            title="Upload real photo"
-          >
-            <Camera className="h-2.5 w-2.5 text-emerald-400" />
-          </button>
-
-          <input 
-            type="file" 
-            ref={fileInputRef} 
-            onChange={handleImageUpload} 
-            accept="image/*" 
-            className="hidden" 
-          />
         </div>
 
         {/* Info */}
@@ -332,7 +391,11 @@ export function ProfileCoverCard({ variant = 'hero', className = '' }: ProfileCo
             <h3 className="text-base sm:text-lg font-bold text-white truncate">
               {PERSONAL_INFO.name}
             </h3>
-            <span className="inline-flex items-center gap-1 text-[10px] font-mono bg-emerald-950 text-emerald-300 border border-emerald-800/60 px-2 py-0.5 rounded-full shrink-0">
+            <span 
+              onClick={handleBadgeClick}
+              className="inline-flex items-center gap-1 text-[10px] font-mono bg-emerald-950 text-emerald-300 border border-emerald-800/60 px-2 py-0.5 rounded-full shrink-0 select-none cursor-pointer"
+              title="Verified Financial AI Architect"
+            >
               <UserCheck className="h-2.5 w-2.5 text-emerald-400" />
               Verified
             </span>
@@ -347,16 +410,119 @@ export function ProfileCoverCard({ variant = 'hero', className = '' }: ProfileCo
             <span>•</span>
             <span className="text-slate-300 truncate">98.5% Match Rate</span>
             <span>•</span>
-            <button
-              onClick={() => fileInputRef.current?.click()}
-              className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2"
-            >
-              {hasCustomPhoto ? 'Update Photo' : 'Upload Photo'}
-            </button>
+            <span className="text-emerald-400/90 truncate">Zero Hallucinations</span>
           </div>
         </div>
 
       </div>
+
+      {/* Modal for Expanded View */}
+      {isModalOpen && (
+        <div 
+          onClick={() => setIsModalOpen(false)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 animate-in fade-in duration-200"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-md w-full bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center shadow-2xl"
+          >
+            <button
+              type="button"
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            
+            <div className="w-64 h-64 mx-auto rounded-2xl overflow-hidden border-2 border-emerald-500/50 mb-4 shadow-xl bg-black">
+              <img 
+                src={imageSrc} 
+                alt={PERSONAL_INFO.name} 
+                className="w-full h-full object-cover object-top"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+
+            <h4 className="text-lg font-bold text-white">{PERSONAL_INFO.name}</h4>
+            <p className="text-xs text-emerald-400 font-mono mt-0.5">Lead Financial AI Systems Architect</p>
+            <p className="text-xs text-slate-400 mt-2 font-mono">{PERSONAL_INFO.email}</p>
+          </div>
+        </div>
+      )}
+
+      {/* Owner Photo Management Modal (Protected) */}
+      {isOwnerModalOpen && (
+        <div 
+          onClick={() => setIsOwnerModalOpen(false)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/85 backdrop-blur-md p-4 animate-in fade-in duration-200"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-lg w-full bg-slate-900 border border-emerald-500/40 rounded-2xl p-6 shadow-2xl text-left"
+          >
+            <button
+              type="button"
+              onClick={() => setIsOwnerModalOpen(false)}
+              className="absolute top-4 right-4 p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-white"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            <div className="flex items-center gap-2 text-emerald-400 text-sm font-mono font-bold mb-1">
+              <Lock className="h-4 w-4" />
+              <span>Hakob Nahapetyan • Private Photo Manager</span>
+            </div>
+            <p className="text-xs text-slate-400 mb-5">
+              Upload your raw personal photo. This will be stored securely on your browser as your primary portrait across the portfolio.
+            </p>
+
+            {/* Drag and Drop Zone */}
+            <div 
+              onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
+              onDragLeave={() => setIsDragging(false)}
+              onDrop={handleDrop}
+              onClick={() => fileInputRef.current?.click()}
+              className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all ${
+                isDragging 
+                  ? 'border-emerald-400 bg-emerald-950/30 ring-4 ring-emerald-500/20' 
+                  : 'border-slate-700 bg-slate-950/60 hover:border-emerald-500/60 hover:bg-slate-950'
+              }`}
+            >
+              <UploadCloud className="h-10 w-10 text-emerald-400 mx-auto mb-3" />
+              <p className="text-sm font-semibold text-white mb-1">
+                Click to select or drag & drop your photo
+              </p>
+              <p className="text-xs text-slate-400">
+                PNG, JPG, WEBP up to 10MB
+              </p>
+              <input 
+                type="file" 
+                ref={fileInputRef} 
+                onChange={handleImageUpload} 
+                accept="image/*" 
+                className="hidden" 
+              />
+            </div>
+
+            <div className="flex items-center justify-between mt-6 pt-4 border-t border-slate-800 text-xs">
+              <button
+                type="button"
+                onClick={resetToDefault}
+                className="text-slate-400 hover:text-slate-200 transition-colors"
+              >
+                Reset to default portrait
+              </button>
+              <button
+                type="button"
+                onClick={() => setIsOwnerModalOpen(false)}
+                className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-lg transition-colors"
+              >
+                Done
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -425,16 +425,16 @@ export const CAREER_EXPERIENCES: CareerExperience[] = [
     role: 'Lead Financial AI Systems Architect & Engineering Lead',
     period: '2023 - Present',
     location: 'Quantitative FinTech & Asset Management Infrastructure',
-    summary: 'Architecting mission-critical autonomous AI pipelines for quantitative accounting, real-time multi-asset trade reconciliation, and algorithmic ledger integrity under leadership of Robert Yenokyan.',
+    summary: 'Architecting mission-critical autonomous AI pipelines for quantitative accounting, real-time multi-asset trade reconciliation, and algorithmic ledger integrity under the leadership of Robert Yenokyan (Founder of Bonton AI & Founder/CEO of Hedgicore).',
     achievements: [
       'Engineered zero-hallucination multi-bank ledger matching pipelines reconciling high-volume daily transactional volume with 98.5%+ straight-through processing.',
-      'Collaborated closely with Robert Yenokyan to design risk-mitigation guardrails and real-time anomaly detection sentinels that eliminated manual audit backlogs.',
+      'Collaborated closely with Robert Yenokyan (Founder of Bonton AI) to design risk-mitigation guardrails and real-time anomaly detection sentinels that eliminated manual audit backlogs.',
       'Developed deep neural network layout parsers extracting structured accounting entities from complex PDF statements, Swift MT940 feeds, and proprietary broker formats.',
       'Implemented automated compliance logging with cryptographic SHA-256 proof hashes ensuring complete auditability for institutional partners.'
     ],
     keyCollaborator: {
       name: 'Robert Yenokyan',
-      role: 'Founder & CEO, Hedgicore'
+      role: 'Founder, Bonton AI • Founder & CEO, Hedgicore'
     }
   },
   {
@@ -466,8 +466,8 @@ export const ENDORSEMENTS: TestimonialOrEndorsement[] = [
   {
     quote: 'Hakob has an exceptional ability to bridge the gap between complex quantitative finance and cutting-edge autonomous AI. At Hedgicore, his architectures brought unprecedented reliability, speed, and mathematical rigor to our financial pipelines. He does not just build models—he engineers production-grade financial systems with zero room for error.',
     author: 'Robert Yenokyan',
-    role: 'Founder & CEO',
-    company: 'Hedgicore',
+    role: 'Founder, Bonton AI • Founder & CEO, Hedgicore',
+    company: 'Hedgicore & Bonton AI',
     metricHighlight: '98.5% Straight-Through Match'
   },
   {
