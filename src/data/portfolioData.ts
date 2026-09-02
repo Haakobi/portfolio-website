@@ -1,4 +1,4 @@
-import { CaseStudy, FinancialSimulationScenario, ServiceOffering, CareerExperience, TestimonialOrEndorsement } from '../types';
+import { CaseStudy, FinancialSimulationScenario, ServiceOffering, CareerExperience } from '../types';
 
 export const PERSONAL_INFO = {
   name: 'Hakob Nahapetyan',
@@ -507,26 +507,3 @@ export const CAREER_EXPERIENCES: CareerExperience[] = [
   }
 ];
 
-export const ENDORSEMENTS: TestimonialOrEndorsement[] = [
-  {
-    quote: 'Hakob has an exceptional ability to bridge the gap between complex quantitative finance and cutting-edge autonomous AI. At Hedgicore, his architectures brought unprecedented reliability, speed, and mathematical rigor to our financial pipelines. He does not just build models—he engineers production-grade financial systems with zero room for error.',
-    author: 'Robert Yenokyan',
-    role: 'Founder, Bonton AI • Founder & CEO, Hedgicore',
-    company: 'Hedgicore & Bonton AI',
-    metricHighlight: '98.5% Straight-Through Match'
-  },
-  {
-    quote: 'Implementing Hakob\'s autonomous reconciliation engine transformed our month-end close from days of tedious spreadsheet cross-checking into an automated review process. His deterministic guardrail design gave our auditors confidence from day one.',
-    author: 'VP of Finance & Operations',
-    role: 'Head of Accounting',
-    company: 'Growing FinTech Infrastructure',
-    metricHighlight: '3.5-Day Close Acceleration'
-  },
-  {
-    quote: 'The duplicate and fraud detection sentinel built by Hakob intercepted anomalous wire routing modifications and duplicate charges that traditional ERP validation rules completely missed. An indispensable engineering asset for our finance team.',
-    author: 'Corporate Controller',
-    role: 'Controller & Compliance Lead',
-    company: 'Logistics & Distribution Practice',
-    metricHighlight: 'Zero Unverified Disbursements'
-  }
-];

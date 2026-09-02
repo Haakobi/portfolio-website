@@ -16,11 +16,10 @@ import {
   Briefcase,
   Layers,
   HeartHandshake,
-  Quote,
   Building2,
   Calendar
 } from 'lucide-react';
-import { PERSONAL_INFO, TECHNICAL_SKILLS, CAREER_EXPERIENCES, ENDORSEMENTS } from '../data/portfolioData';
+import { PERSONAL_INFO, TECHNICAL_SKILLS, CAREER_EXPERIENCES } from '../data/portfolioData';
 import { ProfileCoverCard } from './ProfileCoverCard';
 
 export function AboutSection() {
@@ -274,50 +273,6 @@ export function AboutSection() {
                       <span className="leading-relaxed">{ach}</span>
                     </div>
                   ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Executive Endorsements & Client Feedback */}
-        <div className="mb-12">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <div className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-emerald-800 mb-1">
-                <Quote className="h-3.5 w-3.5 text-emerald-600" />
-                <span>Executive Endorsements</span>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-                Leadership Recommendations & Industry Impact
-              </h3>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {ENDORSEMENTS.map((end, idx) => (
-              <div 
-                key={idx}
-                className="bg-slate-50 border border-slate-200 rounded-xl p-6 flex flex-col justify-between shadow-2xs hover:border-emerald-600/60 transition-colors"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="h-7 w-7 rounded-sm bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700">
-                      <Quote className="h-3.5 w-3.5" />
-                    </div>
-                    <span className="inline-flex items-center rounded-full bg-emerald-100/80 px-2 py-0.5 text-[10px] font-mono font-bold text-emerald-800">
-                      {end.metricHighlight}
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-700 italic leading-relaxed mb-6">
-                    &ldquo;{end.quote}&rdquo;
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-slate-200">
-                  <h4 className="text-xs font-bold text-slate-900">{end.author}</h4>
-                  <p className="text-[11px] text-emerald-700 font-medium">{end.role}</p>
-                  <p className="text-[10px] font-mono text-slate-500">{end.company}</p>
                 </div>
               </div>
             ))}
