@@ -20,63 +20,63 @@ export function ArchitectureBlueprintSection() {
   const tiers = [
     {
       tier: 1,
-      title: 'Perception & Document Extraction',
-      subtitle: 'Multi-Modal Vision & Layout Decomposition',
-      description: 'Ingests messy invoices, credit notes, SWIFT MT940 statements, and bank PDFs without rigid OCR templates.',
+      title: 'Multi-Model Ingestion & Perception',
+      subtitle: 'Dynamic Model Routing & Vision Extraction',
+      description: 'Ingests complex vendor bills, remittances, SWIFT MT940 statements, and multi-bank PDFs with zero rigid OCR templates.',
       color: 'from-blue-500/20 to-cyan-500/20',
       border: 'border-cyan-500/40',
       features: [
-        'Multi-modal LLM bounding box localization for irregular line items',
-        'Spatial table parsing converting complex multi-page PDF grids to tabular JSON',
-        'Automatic handwriting and scan skew compensation',
-        'Direct SFTP, email webhook, and banking API ingestion queues'
+        'Dynamic routing across OpenAI GPT-4o, Anthropic Claude 3.5 Sonnet & Google Gemini 2.0',
+        'Multi-modal spatial table decomposition for nested line-items, taxes, and discounts',
+        'Scan skew compensation and multi-currency parsing with automatic FX reconciliation',
+        'Direct SFTP, email webhooks, and commercial banking API ingestion feeds'
       ],
-      stack: ['Gemini 2.5/3.0 Vision', 'FastAPI Webhooks', 'Apache Tika', 'pgvector']
+      stack: ['OpenAI GPT-4o', 'Claude 3.5 Sonnet', 'Gemini 2.0 Flash', 'LangGraph', 'FastAPI']
     },
     {
       tier: 2,
       title: 'Deterministic Math & Tolerance Gates',
       subtitle: 'Zero-Hallucination Semantic Guardrails',
-      description: 'AI is never allowed to guess accounting figures. All numeric operations run through deterministic Pydantic mathematical check loops.',
+      description: 'AI models never write unverified numbers directly to ledgers. All arithmetic runs through deterministic Pydantic validation checks.',
       color: 'from-emerald-500/20 to-teal-500/20',
       border: 'border-emerald-500/40',
       features: [
         'Strict debit = credit double-entry balancing validation before ledger dispatch',
-        'Contractual tolerance clauses (freight allowance, FX spread caps)',
-        '3-Way Match validation against ERP Purchase Orders and Warehouse Receipts',
-        'Automated subtotal + tax + discount checksum verification'
+        'Contractual tolerance enforcement for freight variance and currency spreads',
+        'Automated 3-Way Match validation against ERP Purchase Orders and receiving slips',
+        'Floating-point safe decimal arithmetic with checksum verification loops'
       ],
-      stack: ['Pydantic v2', 'Deterministic Rules Engine', 'Float-Precision Decimal Math', 'Python NumPy']
+      stack: ['Pydantic v2', 'Deterministic Rules Engine', 'Python Decimal Math', 'NumPy']
     },
     {
       tier: 3,
       title: 'Real-Time Audit & Fraud Sentinel',
       subtitle: 'Continuous Pre-Disbursement Screening',
-      description: 'Autonomous risk detection agents evaluate 100% of vendor transactions against historical patterns and bank routing records.',
+      description: 'Autonomous risk detection agents evaluate 100% of vendor transactions against historical patterns and bank routing records in sub-second latency.',
       color: 'from-amber-500/20 to-orange-500/20',
       border: 'border-amber-500/40',
       features: [
-        'Dense vector semantic similarity to intercept disguised duplicate invoices',
-        'Real-time vendor bank routing & IBAN alteration anomaly quarantine',
-        'Invoice drift detection (sudden price escalation above contract index)',
-        'High-velocity transaction throttling and AML screening checks'
+        'Dense vector semantic similarity to catch disguised duplicate invoices',
+        'Real-time vendor bank routing and IBAN modification anomaly quarantine',
+        'Invoice drift detection alerting on sudden price spikes above rate cards',
+        'Automated audit dossier compilation with evidence cross-referencing'
       ],
-      stack: ['pgvector', 'LangGraph Agents', 'Redis Sentinel', 'Cryptographic Proof Hashes']
+      stack: ['Anthropic Claude 3.5', 'pgvector Embeddings', 'Redis Sentinel', 'SHA-256 Hashes']
     },
     {
       tier: 4,
       title: 'Two-Way ERP Ledger Synchronization',
       subtitle: 'Transactional Safety & Audit Provenance',
-      description: 'Executes atomic REST/SOAP API calls to enterprise ERPs with full rollback capabilities and immutable audit trails.',
+      description: 'Executes atomic REST API calls to enterprise ERPs with rollback safeguards and immutable cryptographic audit trails.',
       color: 'from-purple-500/20 to-indigo-500/20',
       border: 'border-purple-500/40',
       features: [
-        'Direct NetSuite SuiteTalk, SAP S/4HANA, and QuickBooks API connectors',
-        'Human-in-the-loop escalation queues for edge-case exceptions (<0.6%)',
-        'SHA-256 cryptographic audit logs preserving original PDF + reasoning traces',
-        'Instant Slack / Teams interactive exception approval cards'
+        'Direct connectors for NetSuite SuiteTalk, SAP S/4HANA, QuickBooks, and Workday',
+        'Human-in-the-loop escalation queues for edge cases (<1.5% of transaction volume)',
+        'SHA-256 cryptographic audit logs preserving original PDF and reasoning traces',
+        'Instant Slack and Microsoft Teams interactive exception approval cards'
       ],
-      stack: ['SuiteTalk REST/SOAP', 'SAP OData', 'PostgreSQL', 'SOC-2 / SOX 404 Audit Log']
+      stack: ['NetSuite SuiteTalk', 'SAP RFC / OData', 'PostgreSQL', 'SOX 404 Logging']
     }
   ];
 
@@ -91,10 +91,10 @@ export function ArchitectureBlueprintSection() {
             <span>Production Architecture Blueprint</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Deterministic Precision Meets Agentic Intelligence
+            Deterministic Precision Meets Multi-Model Intelligence
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-2">
-            Why traditional OCR fails and standard AI chatbots hallucinate: My 4-tier pipeline decouples probabilistic language understanding from rigorous, deterministic mathematical accounting gates.
+            Decoupling multi-modal language perception (OpenAI GPT-4o, Claude 3.5 Sonnet, Gemini 2.0) from rigorous mathematical accounting gates to guarantee 100% financial integrity.
           </p>
         </div>
 

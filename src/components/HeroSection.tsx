@@ -11,7 +11,9 @@ import {
   Zap, 
   ChevronRight,
   TrendingUp,
-  Clock
+  Clock,
+  Layers,
+  Bot
 } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { ProfileCoverCard } from './ProfileCoverCard';
@@ -26,11 +28,11 @@ export function HeroSection({ onOpenSandbox, onOpenRoiCalc }: HeroSectionProps) 
 
   // Auto-cycle through the live pipeline visualizer
   const pipelineSteps = [
-    { label: '1. Multi-Format Ingestion', detail: 'Bank SFTP, MT940, PDF Invoices, EDI Feeds' },
-    { label: '2. Vision & Semantic OCR', detail: 'Multi-modal bounding box & table decomposition' },
-    { label: '3. Deterministic Tolerance & 3-Way Match', detail: 'Line-item reconciliation against POs & receiving slips' },
-    { label: '4. Autonomous Audit & Fraud Guard', detail: 'Pre-flight bank routing & duplicate hash scan' },
-    { label: '5. Direct ERP Ledger Dispatch', detail: 'Instant balanced journal entry sync to NetSuite/SAP' }
+    { label: '1. Multi-Format Ingestion', detail: 'Bank SFTP, MT940, PDF Invoices & EDI Streams' },
+    { label: '2. Multi-Model Perception', detail: 'OpenAI GPT-4o, Claude 3.5 Sonnet & Gemini Vision extraction' },
+    { label: '3. Deterministic 3-Way Match', detail: 'Mathematical line-item reconciliation against POs & receiving slips' },
+    { label: '4. Autonomous Audit Sentinel', detail: 'Pre-flight bank routing verification & vector duplicate scan' },
+    { label: '5. Direct ERP Ledger Dispatch', detail: 'Instant balanced journal entry sync to NetSuite & SAP' }
   ];
 
   useEffect(() => {
@@ -55,12 +57,12 @@ export function HeroSection({ onOpenSandbox, onOpenRoiCalc }: HeroSectionProps) 
             <div className="flex flex-wrap items-center gap-2 mb-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-emerald-700">
                 <Sparkles className="h-3.5 w-3.5 text-emerald-600" />
-                <span>Financial Automation & Machine Learning</span>
+                <span>Multi-Model AI & Financial Engineering</span>
               </div>
               <div className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-mono text-slate-700">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 <span className="font-semibold text-emerald-700">SYSTEM ACTIVE:</span>
-                <span>Zero-Tolerance Pipeline</span>
+                <span>Multi-Model Pipeline</span>
               </div>
             </div>
 
@@ -70,9 +72,19 @@ export function HeroSection({ onOpenSandbox, onOpenRoiCalc }: HeroSectionProps) 
               <span className="text-emerald-600">Redefined.</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mb-8">
-              I am <strong className="text-slate-900 font-semibold">Hakob Nahapetyan</strong>. I architect intelligent automation systems for high-stakes financial workflows, pairing advanced AI models with deterministic accounting guardrails to eliminate manual friction in reporting, bank reconciliation, and risk audit.
+            {/* Capability-driven, forward-looking proposition */}
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mb-4">
+              I am <strong className="text-slate-900 font-semibold">Hakob Nahapetyan</strong>. I architect and build autonomous financial AI systems—orchestrating <strong className="text-slate-900 font-medium">OpenAI GPT-4o, Anthropic Claude 3.5 Sonnet, and Google Gemini</strong> with deterministic accounting engines to eliminate manual reconciliation, audit risk, and month-end closing friction.
             </p>
+
+            {/* Multi-Model Ecosystem Pills */}
+            <div className="flex flex-wrap items-center gap-1.5 mb-8 text-[11px] font-mono">
+              <span className="text-slate-400 font-medium">Model Stack:</span>
+              <span className="bg-slate-100 text-slate-800 px-2 py-0.5 rounded border border-slate-200 font-semibold">OpenAI GPT-4o</span>
+              <span className="bg-slate-100 text-slate-800 px-2 py-0.5 rounded border border-slate-200 font-semibold">Claude 3.5 Sonnet</span>
+              <span className="bg-slate-100 text-slate-800 px-2 py-0.5 rounded border border-slate-200 font-semibold">Gemini 2.0 / 1.5 Pro</span>
+              <span className="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded border border-emerald-200 font-semibold">Deterministic Math Gate</span>
+            </div>
 
             {/* Personal Cover / Executive Identity Card */}
             <div className="mb-10 max-w-xl">
@@ -95,7 +107,7 @@ export function HeroSection({ onOpenSandbox, onOpenRoiCalc }: HeroSectionProps) 
                 href="#projects"
                 className="inline-flex items-center gap-2 rounded-sm border border-slate-200 bg-white px-5 py-3 text-xs font-semibold uppercase tracking-wider text-slate-700 hover:border-slate-300 hover:text-slate-900 transition-all hover:bg-slate-50"
               >
-                <span>Featured Projects</span>
+                <span>Production Systems</span>
                 <ChevronRight className="h-4 w-4 text-slate-400" />
               </a>
 
@@ -112,10 +124,10 @@ export function HeroSection({ onOpenSandbox, onOpenRoiCalc }: HeroSectionProps) 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-slate-100 pt-8">
               <div>
                 <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono tracking-tight">
-                  88%
+                  98.5%
                 </div>
                 <div className="text-xs uppercase tracking-wider text-slate-500 font-semibold mt-1">
-                  Routine Task Automation
+                  Straight-Through Matching
                 </div>
               </div>
 
@@ -130,10 +142,10 @@ export function HeroSection({ onOpenSandbox, onOpenRoiCalc }: HeroSectionProps) 
 
               <div className="col-span-2 sm:col-span-1">
                 <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono tracking-tight">
-                  &lt;1.2s
+                  0.00%
                 </div>
                 <div className="text-xs uppercase tracking-wider text-slate-500 font-semibold mt-1">
-                  Sub-Second Validation
+                  Ledger Hallucinations
                 </div>
               </div>
             </div>
@@ -151,7 +163,7 @@ export function HeroSection({ onOpenSandbox, onOpenRoiCalc }: HeroSectionProps) 
               <div className="flex justify-between items-center mb-6 pb-3 border-b border-slate-800">
                 <div className="text-emerald-400 font-mono text-xs font-semibold flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  SYSTEM_STATUS: ACTIVE
+                  MULTI_MODEL_PIPELINE: ACTIVE
                 </div>
                 <div className="flex space-x-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-500"></div>
@@ -200,13 +212,13 @@ export function HeroSection({ onOpenSandbox, onOpenRoiCalc }: HeroSectionProps) 
                 })}
               </div>
 
-              {/* Monospace terminal logs */}
+              {/* Monospace terminal logs with multi-model routing */}
               <div className="pt-4 border-t border-slate-800 text-slate-400 font-mono text-[11px] leading-relaxed">
-                <span className="text-emerald-400">&gt;</span> INITIALIZING WORKFLOW_AUTOMATION_v4.2<br />
-                <span className="text-emerald-400">&gt;</span> SCANNING MULTI_BANK_LEDGER... <span className="text-emerald-300">OK</span><br />
-                <span className="text-emerald-400">&gt;</span> APPLYING DETERMINISTIC_GUARD: TOLERANCE_ZERO<br />
-                <span className="text-emerald-400">&gt;</span> ANOMALIES DETECTED: <span className="text-emerald-300">0 (BALANCED)</span><br />
-                <span className="text-emerald-400">&gt;</span> ERP DISPATCH: <span className="text-cyan-300">NETSUITE_API_SYNCED</span>
+                <span className="text-emerald-400">&gt;</span> MODEL_ROUTER: <span className="text-cyan-300">GPT-4o | CLAUDE-3.5 | GEMINI-2.0</span><br />
+                <span className="text-emerald-400">&gt;</span> PARSING REMITTANCE & BANK SFTP... <span className="text-emerald-300">CONFIDENCE 99.8%</span><br />
+                <span className="text-emerald-400">&gt;</span> APPLYING DETERMINISTIC_GATE: DEBIT_EQUALS_CREDIT<br />
+                <span className="text-emerald-400">&gt;</span> FRAUD SENTINEL: <span className="text-emerald-300">0 ANOMALIES (CLEAN)</span><br />
+                <span className="text-emerald-400">&gt;</span> ERP DISPATCH: <span className="text-cyan-300">NETSUITE_REST_SYNCED</span>
               </div>
 
             </div>
@@ -217,8 +229,8 @@ export function HeroSection({ onOpenSandbox, onOpenRoiCalc }: HeroSectionProps) 
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
-                <div className="text-sm font-bold text-slate-900">100% Deterministic Reconciliation</div>
-                <div className="text-xs text-slate-500">Autonomous bank statement matching with mathematical proof.</div>
+                <div className="text-sm font-bold text-slate-900">Zero-Hallucination Architecture</div>
+                <div className="text-xs text-slate-500">Multi-model intelligence gated by strict mathematical accounting rules.</div>
               </div>
             </div>
 

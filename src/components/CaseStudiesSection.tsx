@@ -53,7 +53,7 @@ export function CaseStudiesSection() {
               Featured AI Financial Automation Projects
             </h2>
             <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-2xl">
-              End-to-end architectures built with Python, TensorFlow/PyTorch, NLP transformers, and deterministic verification to deliver measurable financial results.
+              End-to-end architectures orchestrating OpenAI GPT-4o, Claude 3.5 Sonnet, and Google Gemini with deterministic ERP verification to deliver zero-hallucination financial automation.
             </p>
           </div>
 

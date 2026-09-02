@@ -77,9 +77,9 @@ export function InteractiveWorkflowSandbox() {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-xs font-mono text-slate-500">Framework:</span>
+            <span className="text-xs font-mono text-slate-500">Engine:</span>
             <span className="text-xs font-mono font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-sm">
-              LangGraph + Gemini Vision
+              LangGraph + GPT-4o / Claude 3.5 / Gemini 2.0
             </span>
           </div>
         </div>
